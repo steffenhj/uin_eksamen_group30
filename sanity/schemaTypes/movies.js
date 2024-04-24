@@ -1,31 +1,31 @@
 export const movies = {
-    title: 'Movies',
-    name: 'movies',
-    type: 'document',
+    title: "Movies",
+    name: "movies",
+    type: "document",
     fields: [
         {
-            title: 'Title',
-            name: 'title',
-            type: 'string',
+            title: "Title",
+            name: "title",
+            type: "string",
         },
         {
-            title: 'Release Date',
-            name: 'releaseDate',
-            type: 'date',
+            title: "Release Date",
+            name: "releaseDate",
+            type: "date",
         },
         {
-            title: 'Rating',
-            name: 'rating',
-            type: 'number',
+            title: "Rating",
+            name: "rating",
+            type: "number",
         },
         {
-            title: 'Genres',
-            name: 'genres',
-            type: 'array',
+            title: "Genres",
+            name: "genres",
+            type: "array",
             of: [
                 {
-                    type: 'reference',
-                    to: [{ type: 'genres' }],
+                    type: "reference",
+                    to: [{ type: "genres" }],
                 },
             ],
         },

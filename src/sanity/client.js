@@ -8,7 +8,7 @@ const options = {
 
 const client = SanityClient({
     ...options,
-    apiVersion: '2021-08-31',
+    apiVersion: "2021-08-31",
     useCdn: true
 });
 

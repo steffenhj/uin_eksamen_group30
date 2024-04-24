@@ -1,12 +1,12 @@
 export const users = {
-    title: 'Users',
-    name: 'users',
-    type: 'document',
+    title: "Users",
+    name: "users",
+    type: "document",
     fields: [
         {
-            title: 'Name',
-            name: 'name',
-            type: 'string',
+            title: "Name",
+            name: "name",
+            type: "string",
         },
         {
             title: "Favorite Movies",
