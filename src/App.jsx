@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import './App.css'
 import MovieCard from './components/MovieCard'
+import { Route, Routes } from 'react-router-dom'
+import Layout from './components/Layout'
 
 function App() {
 
@@ -10,7 +12,7 @@ function App() {
     <>
       <Layout>
         <Routes>
-            <Route path="/" element={<MovieCard/>}/>
+            <Route path="/" />
         </Routes>
     </Layout>
     </>

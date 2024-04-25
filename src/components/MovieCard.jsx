@@ -1,7 +1,7 @@
 export default function MovieCard(){
     return(
         <>
-        <h1>Hi</h1>
+        <h1>Hiiiiiiiii</h1>
         </>
     )
 }
