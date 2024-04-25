@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { fetchAllMovies } from "../sanity/services/movieService";
+import { AiFillAccountBook } from "react-icons/ai";
 
 export default function Header(){
 
@@ -19,7 +20,7 @@ export default function Header(){
 
     return(
         <>
-        <h1>Header</h1>
+        <h1>Header <AiFillAccountBook /> </h1>
         </>
     )
 }
