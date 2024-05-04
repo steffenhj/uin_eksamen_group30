@@ -5,3 +5,22 @@ export async function fetchAllUsers() {
     return data;
 }
 
+export async function fetchAllUsersInfo() {
+    const data = await client.fetch(`*[_type == "users"] { 
+        name ,
+        favoriteMovies[]->{
+            _id,
+            title,
+            imdb
+        },
+        favoriteGenres[]->{
+            _id,
+            title
+        },
+        wishlist[]->{
+            _id,
+            title
+        }
+    }`);
+    return data;
+}
