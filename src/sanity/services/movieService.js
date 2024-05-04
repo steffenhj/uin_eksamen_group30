@@ -4,11 +4,17 @@ export async function fetchAllMovies() {
     const data = await client.fetch(`*[_type == "movies"]{
         _id,
         title,
-        releaseDate,
         genres[]->{
             _id,
             name
         }
+    }`);
+    return data;
+}
+
+export async function fetchAllGenre() {
+    const data = await client.fetch(`*[_type == "genres"]{
+        genre
     }`);
     return data;
 }
