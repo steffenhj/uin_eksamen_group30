@@ -1,38 +1,38 @@
 import { useEffect, useState } from "react";
 
+import { fetchAllGenre, fetchAllMovies } from "../sanity/services/movieService";
+import { FaRegStar } from "react-icons/fa";
+import { IoStar } from "react-icons/io5";
+import { Link } from "react-router-dom";
+
 export default function GenresPage(){
 
-const [genre, setGenre] = useState({})
+const [genres, setGenres] = useState([])
 
 
-const getGenre = async()=>{
-    const url = 'https://moviesdatabase.p.rapidapi.com/titles/utils/genres';
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '32cfd0c3edmshcb26c632e9b1885p16df98jsnc933f10e1a4e',
-            'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
-        }
-    };
-    
-    try {
-        const response = await fetch(url, options);
-        const result = await response.text();
-        console.log(result);
-    } catch (error) {
-        console.error(error);
-    }
-  }
+  const getAllGenres = async ()=> {
+    const data = await fetchAllGenre()
+    setGenres(data)
+}
 
 useEffect(()=>{
-    getGenre()
+    getAllGenres()
   },[])
 
-  console.log("OOG", genre)
+
+  console.log("Genres", genres)
 
     return(
-        <>
-            <h1>Bigpage</h1>
-        </>
+        <section>
+            <ul>
+                <h2>Genres</h2>
+                {
+                    genres?.map((item, index) => 
+                    <p>{item.genre}
+                    <span >{item.genre === "Musical" ? <IoStar /> : <FaRegStar />}<button>Add to favorites</button></span>
+                    </p>)
+                }
+            </ul>
+        </section>
     )
 }
