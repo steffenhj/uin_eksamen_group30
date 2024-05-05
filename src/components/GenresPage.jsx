@@ -51,7 +51,7 @@ useEffect(()=>{
         <h2>Genres</h2>
         {
             genres?.map((item, index) => 
-            <li key={index}>
+            <li key={index} className="ee">
               <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}</p>
               {favoriteGenre?.map((fav, ind) => 
                 <span className="starCase" key={ind}>
