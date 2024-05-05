@@ -15,7 +15,7 @@ export async function fetchAllUsersInfo() {
         },
         favoriteGenres[]->{
             _id,
-            title
+            genre
         },
         wishlist[]->{
             _id,

@@ -1,0 +1,43 @@
+section{
+    border: 2px solid black;
+
+.genreList{
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    h2{
+        color: blue;
+    }
+    li{
+        display: flex;
+        font-size: 25px;
+        flex-wrap: wrap;
+
+        .genre{
+            color: blue;
+            cursor: pointer;
+        }
+
+        span{
+
+            .star{
+                color: yellow;
+            }
+        }
+
+        .addFav{
+            margin-left: 1.5rem;
+            font-size: 15px;
+            color: grey;
+            justify-content: flex-end;
+            justify-self: end;
+            justify-items: end;
+            text-align: right;
+        }
+    }
+
+}
+
+}
