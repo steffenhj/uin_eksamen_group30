@@ -5,15 +5,6 @@ import { fetchAllUsers } from "../sanity/services/userService";
 export default function Login({users, setUsers}){
 
 
-
-    useEffect(()=>{
-        const getAllUsers = async ()=> {
-            const data = await fetchAllUsers()
-            setUsers(data)
-        }
-        getAllUsers()
-    },[])  
-
     const handleItemClick = (user) => {
         setUsers(user);
         localStorage.setItem("user", JSON.stringify(user));
