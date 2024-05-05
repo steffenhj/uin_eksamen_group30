@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import { fetchAllUsers } from "../sanity/services/userService";
 
-export default function Login(){
+export default function Login({users, setUsers}){
 
 
-const [users, setUsers] = useState([])
 
     useEffect(()=>{
         const getAllUsers = async ()=> {
@@ -13,9 +12,7 @@ const [users, setUsers] = useState([])
             setUsers(data)
         }
         getAllUsers()
-    },[])
-
-    
+    },[])  
 
     const handleItemClick = (user) => {
         setUsers(user);
