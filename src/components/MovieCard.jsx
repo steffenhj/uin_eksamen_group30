@@ -45,10 +45,6 @@ export default function MovieCard({movieImdb}){
     
   } , [])
     
-    
-
-    
-
     console.log("Movie Info:", movieInfo)
       return (
         <>

@@ -21,7 +21,6 @@ export default function Login({users, setUsers}){
                     </button>
                     </Link>
                 ))}
-                <Link to="/Home">Go to Home</Link>
         </>
     );
 }
