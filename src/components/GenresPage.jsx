@@ -54,15 +54,13 @@ useEffect(()=>{
             <li key={index}>
               <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}</p>
               {favoriteGenre?.map((fav, ind) => 
-                <span key={ind}>
+                <span className="starCase" key={ind}>
                   {item.genre.includes(fav.genre) ? <IoStar className="star"/> : null}
                 </span>
               )}
               <p className="addFav">Add to favorite</p>
             </li>
-            
             )
-            
         }
     </ul>
     </section>
