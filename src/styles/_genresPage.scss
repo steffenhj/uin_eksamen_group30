@@ -6,17 +6,17 @@ section{
     padding: 0;
 
     h2{
-        color: blue;
+        color: rgb(51, 125, 255);
         text-align: center;
     }
     li{
         display:flex;
         font-size: 25px;
 
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid rgb(115, 107, 94);
 
         .genre{
-            color: blue;
+            color: rgb(51, 125, 255);
             cursor: pointer;
         }
 
