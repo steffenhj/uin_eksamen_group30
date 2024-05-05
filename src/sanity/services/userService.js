@@ -5,8 +5,13 @@ export async function fetchAllUsers() {
     return data;
 }
 
-export async function fetchAllUsersInfo() {
-    const data = await client.fetch(`*[_type == "users"] { 
+export async function fetchAllUsersInfo(userName) {
+
+    const query = userName ? `*[_type == "users" && name == "${userName}"]` : `*[_type == "users"]`
+
+    const params = userName ? { userName } : {}
+
+    const data = await client.fetch(`${query} { 
         name ,
         favoriteMovies[]->{
             _id,
@@ -21,6 +26,6 @@ export async function fetchAllUsersInfo() {
             _id,
             title
         }
-    }`);
+    }`, params);
     return data;
 }
