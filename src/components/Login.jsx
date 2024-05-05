@@ -15,7 +15,6 @@ export default function Login({users, setUsers}){
     },[])  
 
     const handleItemClick = (user) => {
-        setUsers(user);
         localStorage.setItem("user", JSON.stringify(user));
     }
 
