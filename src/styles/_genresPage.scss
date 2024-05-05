@@ -1,0 +1,47 @@
+section{
+
+.genreList{
+    color: white;
+    margin: 0;
+    padding: 0;
+
+    h2{
+        color: rgb(51, 125, 255);
+        text-align: center;
+    }
+    .genres{
+        display:flex;
+        font-size: 100%;
+        border-bottom: 2px solid rgb(115, 107, 94);
+        justify-content: space-between;
+        align-items: center;
+
+        .genre{
+            color: rgb(51, 125, 255);
+            cursor: pointer;
+        }
+
+        .starCase{
+
+            .star{
+                color: yellow;
+                justify-content: left;
+            }
+        }
+
+        .addFav{
+            font-size: 90%;
+            color: grey;
+            padding-left: 1rem;
+
+            &:hover{
+                cursor: pointer;
+                text-decoration: underline;
+        }}
+
+
+    }
+
+}
+
+}

@@ -20,7 +20,7 @@ export async function fetchAllUsersInfo(userName) {
         },
         favoriteGenres[]->{
             _id,
-            title
+            genre
         },
         wishlist[]->{
             _id,
