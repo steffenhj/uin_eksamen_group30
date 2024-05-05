@@ -11,7 +11,7 @@ section{
     }
     .genres{
         display:flex;
-        font-size: 25px;
+        font-size: 100%;
         border-bottom: 2px solid rgb(115, 107, 94);
         justify-content: space-between;
         align-items: center;
@@ -30,7 +30,7 @@ section{
         }
 
         .addFav{
-            font-size: 15px;
+            font-size: 90%;
             color: grey;
             padding-left: 1rem;
 
