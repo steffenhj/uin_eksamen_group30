@@ -33,10 +33,14 @@ section .genreList .genres .addFav:hover {
 }
 
 .main-content {
-  width: 1200px;
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+}
+.main-content article {
+  margin: 0 1rem;
 }
 
 .movieCard {
