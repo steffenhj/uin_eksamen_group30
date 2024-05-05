@@ -4,6 +4,7 @@ import { fetchAllGenre } from "../sanity/services/genreService";
 import { FaRegStar } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { fetchAllUsers, fetchAllUsersInfo } from "../sanity/services/userService";
+import '../styles/css/main.css'
 
 export default function GenresPage(){
 

@@ -2,6 +2,7 @@ import MovieCard from "./MovieCard"
 import { useEffect, useState } from "react"
 import { fetchAllUsersInfo } from "../sanity/services/userService"
 import { Link } from "react-router-dom"
+import '../styles/css/main.css'
 
 export default function Home({users}){
     if (!users || users.length === 0) {
@@ -38,7 +39,7 @@ export default function Home({users}){
     return(
         <>
         <h2>Hei, {userName}</h2>
-        <section>
+        <section className="main-content">
             <article>
             <h3>Filmer jeg skal se! {userData.name}</h3>
             {userData[0]?.favoriteMovies.map((movie, index)=>(

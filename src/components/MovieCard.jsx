@@ -9,9 +9,6 @@ export default function MovieCard({movieImdb}){
     releaseYear: ''
   
   });
-  const [results, setResults] = useState("")
-
-  const [data, setData] = useState({});
 
   const fetchFilmData = async () =>{
     const url = `https://moviesdatabase.p.rapidapi.com/titles/${movieImdb}`;
@@ -26,12 +23,8 @@ export default function MovieCard({movieImdb}){
     try {
       const response = await fetch(url, options);
       const result = await response.text();
-      setResults(result);
 
       const data = JSON.parse(result);
-      setData(data);
-      const title = data.results.titleText.text;
-      console.log("Title titleText:", title);
 
       setMovieInfo({
         title: data.results.titleText.text,
@@ -49,9 +42,6 @@ export default function MovieCard({movieImdb}){
   useEffect(() => {
     fetchFilmData();
 
-    // console.log("Data:", data)
-    
-
     
   } , [])
     
@@ -60,8 +50,6 @@ export default function MovieCard({movieImdb}){
     
 
     console.log("Movie Info:", movieInfo)
-    console.log (movieImdb)
-    console.log("Hallo" , movieInfo.results )
       return (
         <>
        <article className = "movieCard">
