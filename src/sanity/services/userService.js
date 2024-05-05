@@ -24,7 +24,8 @@ export async function fetchAllUsersInfo(userName) {
         },
         wishlist[]->{
             _id,
-            title
+            title,
+            imdb
         }
     }`, params);
     return data;

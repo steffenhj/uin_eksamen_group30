@@ -42,14 +42,14 @@ export default function Home({users}){
             <article>
             <h3>Filmer jeg skal se! {userData.name}</h3>
             {userData[0]?.favoriteMovies.map((movie, index)=>(
-            <MovieCard key = {index} movie={movie.imdb} /> 
+            <MovieCard key = {index} movieImdb={movie.imdb} /> 
             ))} 
             </article>
 
             <article>
-            <h3> Din film ønskeliste:</h3>
+            <h3> Din film ønskeliste:</h3> 
             {userData[0]?.wishlist.map((movie, index)=>(
-            <MovieCard key = {index} movie={movie.imdb} /> 
+            <MovieCard key = {index} movieImdb={movie.imdb} /> 
             ))}
             </article>
             
