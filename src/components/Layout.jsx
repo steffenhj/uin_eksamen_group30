@@ -8,6 +8,7 @@ export default function Layout({children}){
     <>
         <Header/>
         <GenresPage />
+        <MovieCard/>
         {children}
     </>
     )

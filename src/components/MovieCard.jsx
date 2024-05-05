@@ -1,13 +1,39 @@
+import { useEffect, useState } from "react"
 
-export default function MovieCard(){ 
+export default function MovieCard({movie}){ 
     
-    
+    const [movieInfo, setMovieInfo] = useState({
+      title: '',
+      movieId: '',
+      genres: [],
+      imageUrl: ''
 
+
+
+    })
+
+    useEffect(() => {
+      
+      if(movie) {
+        setMovieInfo({
+          title: movie.title,
+          genres: movie.genres.map(genre => genre.name),
+          movieId: movie._id,
+          imageUrl: movie.PrimaryImage.url 
+
+        })
+      }
+    }, [movie])
+
+    console.log("Movie Info:", movieInfo)
       return (
         <>
-       <article>
-        <img src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_.jpg"></img>
-        <p>Blade Runner 2049 (2017)</p>
+       <article className = "movieCard">
+        <img src= {movieInfo.imageUrl} alt= {movieInfo.title} />
+
+        <h3>{movieInfo.title}</h3>
+        <p>{movieInfo.movieId}</p> {/*Viser bare filmens ID */}
+        <p>Genres: {movieInfo.genres.join(', ')}</p>
         </article>
         
         
