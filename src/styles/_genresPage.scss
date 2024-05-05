@@ -25,12 +25,14 @@ section{
 
             .star{
                 color: yellow;
+                justify-content: left;
             }
         }
 
         .addFav{
             font-size: 15px;
             color: grey;
+            padding-left: 1rem;
 
             &:hover{
                 cursor: pointer;
