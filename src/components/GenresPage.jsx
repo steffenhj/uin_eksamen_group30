@@ -38,6 +38,10 @@ const [user, setUser] = useState([])
     console.log("Clicked", genre)
   }
 
+  function handleAddFavoriteClick(genre){
+    console.log("Clicked", genre)
+  }
+
 useEffect(()=>{
       getAllGenres()
       getUser()
@@ -51,14 +55,14 @@ useEffect(()=>{
         <h2>Genres</h2>
         {
             genres?.map((item, index) => 
-            <li key={index} className="ee">
+            <li key={index} className="genres">
               <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}</p>
               {favoriteGenre?.map((fav, ind) => 
                 <span className="starCase" key={ind}>
                   {item.genre.includes(fav.genre) ? <IoStar className="star"/> : null}
                 </span>
               )}
-              <p className="addFav">Add to favorite</p>
+              <p className="addFav" onClick={()=>handleAddFavoriteClick(item.genre)}>Add to favorite</p>
             </li>
             )
         }

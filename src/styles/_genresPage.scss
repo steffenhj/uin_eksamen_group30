@@ -9,7 +9,7 @@ section{
         color: rgb(51, 125, 255);
         text-align: center;
     }
-    .ee{
+    .genres{
         display:flex;
         font-size: 25px;
         border-bottom: 2px solid rgb(115, 107, 94);
@@ -31,7 +31,13 @@ section{
         .addFav{
             font-size: 15px;
             color: grey;
-        }
+
+            &:hover{
+                cursor: pointer;
+                text-decoration: underline;
+        }}
+
+
     }
 
 }
