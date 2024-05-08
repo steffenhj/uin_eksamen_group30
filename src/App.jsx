@@ -16,6 +16,12 @@ import Header from './components/Header'
 function App() {
 
   const [users, setUsers] = useState([])
+  const [compareToUser, setCompareToUser] = useState('')
+
+  function handleClick(user){
+    localStorage.setItem("userToCompare", JSON.stringify(user));
+    setCompareToUser(user)
+  }
 
   useEffect(()=>{
     const getAllUsers = async ()=> {
@@ -30,7 +36,7 @@ function App() {
       <Layout>
         <Routes>
             <Route path="/" element={<Login users={users} setUsers={setUsers}/>}/>
-            <Route path="/Home" element={<Home users={users} />}/>
+            <Route path="/Home" element={<Home users={users} handleClick={handleClick} />}/>
             <Route path="/ComparePage" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>
         </Routes>

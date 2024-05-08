@@ -4,10 +4,7 @@ import { fetchAllUsersInfo } from "../sanity/services/userService"
 import { Link } from "react-router-dom"
 import '../styles/css/main.css'
 
-export default function Home({users}){
-    if (!users || users.length === 0) {
-        return <p>Loading...</p>
-    }
+export default function Home({users, handleClick}){
 
     console.log("USERS IN HOME", users)
 
@@ -58,9 +55,9 @@ export default function Home({users}){
                 <h3>Jeg skal se sammen med...</h3>
                 {otherUsers.map((user, index)=>(
                     <Link to="/ComparePage" key={index}>
-                        <ul key={index}>
-                            <li>{user.name}</li>
-                        </ul>
+                        <button  onClick={()=>handleClick(user)}>
+                            {user.name} 
+                        </button>
                     </Link>
                 ))}
             </article>
