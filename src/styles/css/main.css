@@ -1,0 +1,54 @@
+section .genreList {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+section .genreList h2 {
+  color: rgb(51, 125, 255);
+  text-align: center;
+}
+section .genreList .genres {
+  display: flex;
+  font-size: 100%;
+  border-bottom: 2px solid rgb(115, 107, 94);
+  justify-content: space-between;
+  align-items: center;
+}
+section .genreList .genres .genre {
+  color: rgb(51, 125, 255);
+  cursor: pointer;
+}
+section .genreList .genres .starCase .star {
+  color: yellow;
+  justify-content: left;
+}
+section .genreList .genres .addFav {
+  font-size: 90%;
+  color: grey;
+  padding-left: 1rem;
+}
+section .genreList .genres .addFav:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.main-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.main-content article {
+  margin: 0 1rem;
+}
+
+.movieCard {
+  width: 200px;
+  height: auto;
+}
+.movieCard img {
+  width: 100%;
+  height: auto;
+  display: block;
+}/*# sourceMappingURL=main.css.map */
