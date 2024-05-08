@@ -27,10 +27,10 @@ export default function MovieCard({movieImdb}){
       const data = JSON.parse(result);
 
       setMovieInfo({
-        title: data.results.titleText?.text,
-        movieId: data.results.id,
-        imageUrl: data.results.primaryImage.url,
-        releaseYear: data.results.releaseYear.year,
+        title: data.results?.titleText.text,
+        movieId: data.results?.id,
+        imageUrl: data.results?.primaryImage.url,
+        releaseYear: data.results?.releaseYear.year,
         imageLink: `https://www.imdb.com/title/${movieImdb}`
       })
 
@@ -53,10 +53,12 @@ export default function MovieCard({movieImdb}){
           <a href= {movieInfo.imageLink} target="_blank">
         <img src= {movieInfo.imageUrl} alt= {movieInfo.title} />
         </a>
-
-         <h3>{movieInfo.title}</h3>
+          <a href= {movieInfo.imageLink} target="_blank">
+          <h3>{movieInfo.title} ({movieInfo.releaseYear})</h3>
+          </a>
+         
          {/* <p>{movieInfo.movieId}</p>  Viser bare filmens ID */}
-         <p>{movieInfo.releaseYear}</p>
+         {/* <p>{movieInfo.releaseYear}</p> */}
 
         </article>
 
