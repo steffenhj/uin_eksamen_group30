@@ -20,14 +20,15 @@ export default function Header() {
 
     return (
         <>
+        <nav>
             <Link to={"/Home"}>What to see?</Link>
 
             <Link to={"/ComparePage"}><LuTv />Hva skal jeg se?</Link>
             
             <Link to={"/GenresPage"}>Bla gjennom sjangere</Link>
 
-            <Link to={"/"}><FaRegUserCircle />Bruker</Link>
+            <Link to={"/"}><FaRegUserCircle />bruker</Link>
+        </nav>
         </>
     )
-
 }

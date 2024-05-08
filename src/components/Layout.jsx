@@ -7,8 +7,7 @@ import Login from "./Login";
 export default function Layout({children}){
     return(
     <>
-        <Header/>
-        <GenresPage/>
+        <Header />
         {children}
     </>
     )
