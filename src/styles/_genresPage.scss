@@ -19,15 +19,14 @@ section{
         .genre{
             color: rgb(51, 125, 255);
             cursor: pointer;
-        }
-
-        .starCase{
-
+        
             .star{
                 color: yellow;
-                justify-content: left;
+                align-items: left;
+                cursor:default;
             }
         }
+
 
         .addFav{
             font-size: 90%;

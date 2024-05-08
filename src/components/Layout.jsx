@@ -8,6 +8,7 @@ export default function Layout({children}){
     return(
     <>
         <Header/>
+        <GenresPage/>
         {children}
     </>
     )

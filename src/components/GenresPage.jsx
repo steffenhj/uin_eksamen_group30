@@ -4,7 +4,6 @@ import { fetchAllGenre } from "../sanity/services/genreService";
 import { FaRegStar } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { fetchAllUsers, fetchAllUsersInfo } from "../sanity/services/userService";
-import '../styles/css/main.css'
 
 export default function GenresPage(){
 
@@ -43,6 +42,36 @@ const [user, setUser] = useState([])
     console.log("Clicked", genre)
   }
 
+  function handleFavoriteStar(genre){
+    let count = 0;
+    favoriteGenre?.map((fav, ind) => 
+      {if(genre.includes(fav.genre)){
+        count++;
+      }
+    }
+    )
+    if(count !== 0){
+      return <IoStar className="star"/>
+    }else{
+      return <FaRegStar />
+    }
+  }
+
+  function handleFavoriteAdd(genre){
+    let count = 0;
+    favoriteGenre?.map((fav, ind) => 
+      {if(genre.includes(fav.genre)){
+        count++;
+      }
+    }
+    )
+    if(count === 0){
+      return <p className="addFav" onClick={()=>handleAddFavoriteClick(item.genre)}>Add to favorite</p>
+    }else{
+      return
+    }
+  }
+
 useEffect(()=>{
       getAllGenres()
       getUser()
@@ -57,13 +86,12 @@ useEffect(()=>{
         {
             genres?.map((item, index) => 
             <li key={index} className="genres">
-              <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}</p>
-              {favoriteGenre?.map((fav, ind) => 
-                <span className="starCase" key={ind}>
-                  {item.genre.includes(fav.genre) ? <IoStar className="star"/> : null}
-                </span>
-              )}
-              <p className="addFav" onClick={()=>handleAddFavoriteClick(item.genre)}>Add to favorite</p>
+              <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}
+              {handleFavoriteStar(item.genre)}
+              </p>
+
+              {handleFavoriteAdd(item.genre)}
+
             </li>
             )
         }
