@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 
-export default function MovieCard({movieImdb}){ 
+export default function MovieCard({movieImdb}){
 
   const [movieInfo, setMovieInfo] = useState({
     title: '',
     movieId: '',
     imageUrl: '',
     releaseYear: ''
-  
+
   });
 
   const fetchFilmData = async () =>{
@@ -19,7 +19,7 @@ export default function MovieCard({movieImdb}){
         'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
       }
     };
-    
+
     try {
       const response = await fetch(url, options);
       const result = await response.text();
@@ -27,12 +27,13 @@ export default function MovieCard({movieImdb}){
       const data = JSON.parse(result);
 
       setMovieInfo({
-        title: data.results.titleText.text,
+        title: data.results.titleText?.text,
         movieId: data.results.id,
         imageUrl: data.results.primaryImage.url,
-        releaseYear: data.results.releaseYear.year
+        releaseYear: data.results.releaseYear.year,
+        imageLink: `https://www.imdb.com/title/${movieImdb}`
       })
-      
+
 
     } catch (error) {
       console.error(error);
@@ -42,26 +43,27 @@ export default function MovieCard({movieImdb}){
   useEffect(() => {
     fetchFilmData();
 
-    
+
   } , [])
-    
+
     console.log("Movie Info:", movieInfo)
       return (
         <>
        <article className = "movieCard">
+          <a href= {movieInfo.imageLink} target="_blank">
         <img src= {movieInfo.imageUrl} alt= {movieInfo.title} />
+        </a>
 
-         <h3>{movieInfo.title}</h3> 
-         <p>{movieInfo.movieId}</p>  {/*Viser bare filmens ID */}
+         <h3>{movieInfo.title}</h3>
+         {/* <p>{movieInfo.movieId}</p>  Viser bare filmens ID */}
          <p>{movieInfo.releaseYear}</p>
-        
+
         </article>
-        
-        
+
+
         </>
-        
+
       )
-    
+
 }
-    
-    
+
