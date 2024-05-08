@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { fetchAllGenre } from "../sanity/services/genreService";
+import { fetchAllGenre, updateFavorite } from "../sanity/services/genreService";
 import { FaRegStar } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { fetchAllUsers, fetchAllUsersInfo } from "../sanity/services/userService";
@@ -38,8 +38,14 @@ const [user, setUser] = useState([])
     console.log("Clicked", genre)
   }
 
-  function handleAddFavoriteClick(genre){
-    console.log("Clicked", genre)
+  //fix this writeclient
+  const handleAddFavoriteClick = async(e, genre, user) => {
+    const l = await updateFavorite(user, genre)
+  }
+
+  function handleAddFavoriteClicke(genre, user){
+    console.log("Clicked", genre, user)
+    updateFavorite(user, genre)
   }
 
   function handleFavoriteStar(genre){
@@ -66,9 +72,9 @@ const [user, setUser] = useState([])
     }
     )
     if(count === 0){
-      return <p className="addFav" onClick={()=>handleAddFavoriteClick(item.genre)}>Add to favorite</p>
+      return <p className="addFav" onClick={(e)=>handleAddFavoriteClick(genre, user)}>Add to favorite</p>
     }else{
-      return
+      return <p className="alreadyFav">Favorite-Genre</p>
     }
   }
 
@@ -78,7 +84,6 @@ useEffect(()=>{
       getUserFavorite()
   },[userGenres])
 
-
     return(
       <section>
         <ul className="genreList">
@@ -86,7 +91,7 @@ useEffect(()=>{
         {
             genres?.map((item, index) => 
             <li key={index} className="genres">
-              <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}    
+              <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}
               {handleFavoriteStar(item.genre)}
               </p>
 
