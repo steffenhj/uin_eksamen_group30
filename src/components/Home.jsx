@@ -11,6 +11,7 @@ export default function Home({users, userName, setUserName, userData, setUserDat
 
     console.log("USERS IN HOME", users)
 
+    const [userData, setUserData] = useState ({})
 
     useEffect(()=>{
         const user = JSON.parse(localStorage.getItem("user"));

@@ -26,14 +26,13 @@ function App() {
   },[])  
 
   const [userName, setUserName] = useState('')
-  const [userData, setUserData] = useState ({})
 
   return (
     <>
       <Layout userName={userName}>
         <Routes>
             <Route path="/" element={<Login users={users} setUsers={setUsers}/>}/>
-            <Route path="/Home" element={<Home users={users} userName={userName} setUserName={setUserName} userData={userData} setUserData={setUserData} />}/>
+            <Route path="/Home" element={<Home users={users} userName={userName} setUserName={setUserName} />}/>
             <Route path="/ComparePage" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>
         </Routes>
