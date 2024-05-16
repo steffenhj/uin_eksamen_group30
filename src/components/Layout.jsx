@@ -13,6 +13,9 @@ export default function Layout({children, userName}){
         <main>
             {children}
         </main>
+        <footer>
+            <p>WhatToSee © 2024</p>
+        </footer>
     </>
     )
 }
