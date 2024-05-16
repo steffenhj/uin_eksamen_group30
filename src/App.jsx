@@ -16,6 +16,12 @@ import Header from './components/Header'
 function App() {
 
   const [users, setUsers] = useState([])
+  const [compareToUser, setCompareToUser] = useState('')
+
+  function handleClick(user){
+    localStorage.setItem("userToCompare", JSON.stringify(user));
+    setCompareToUser(user)
+  }
 
   useEffect(()=>{
     const getAllUsers = async ()=> {

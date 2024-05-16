@@ -53,7 +53,7 @@ const [user, setUser] = useState([])
     if(count !== 0){
       return <IoStar className="star"/>
     }else{
-      return <FaRegStar />
+      return <FaRegStar className="unCheckedStar" />
     }
   }
 
@@ -86,7 +86,7 @@ useEffect(()=>{
         {
             genres?.map((item, index) => 
             <li key={index} className="genres">
-              <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}
+              <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}    
               {handleFavoriteStar(item.genre)}
               </p>
 

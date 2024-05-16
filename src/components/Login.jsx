@@ -13,7 +13,8 @@ export default function Login({users, setUsers}){
 
     return(
         <>
-            <h1>Bigpage</h1>
+            <h1>Hvem skal se i dag?</h1>
+            <h2>Velg en bruker</h2>
                 {users.map((user, index) => (
                     <Link to="/Home" key={index}>
                     <button  onClick={()=>handleItemClick(user)}>

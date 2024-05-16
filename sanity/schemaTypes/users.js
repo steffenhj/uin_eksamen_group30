@@ -9,6 +9,15 @@ export const users = {
             type: "string",
         },
         {
+            title: "Userslug",
+            name: "userslug",
+            type: "slug",
+            options: {
+                source: "name",
+                slugify: input => input.toLowerCase().replace(/\s+/g, '-')
+            }
+        },
+        {
             title: "Favorite Movies",
             name: "favoriteMovies",
             type: "array",
