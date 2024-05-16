@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,  } from "react";
+import { Link } from 'react-router-dom'
 
 import { fetchAllGenre } from "../sanity/services/genreService";
 import { FaRegStar } from "react-icons/fa";
@@ -83,12 +84,15 @@ useEffect(()=>{
       <section>
         <ul className="genreList">
         <h2>Genres</h2>
+      
         {
             genres?.map((item, index) => 
             <li key={index} className="genres">
+              <Link to={`/GenrePage/${item.genre}`}>
               <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}    
               {handleFavoriteStar(item.genre)}
               </p>
+              </Link>
 
               {handleFavoriteAdd(item.genre)}
 
