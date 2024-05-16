@@ -37,7 +37,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Login users={users} setUsers={setUsers}/>}/>
             <Route path="/Home" element={<Home users={users} handleClick={handleClick} />}/>
-            <Route path="/ComparePage" element={<ComparePage />} ></Route>
+            <Route path="/ComparePage/:slug" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>
         </Routes>
       </Layout>
