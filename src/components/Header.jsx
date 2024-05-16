@@ -20,7 +20,6 @@ export default function Header({userName}) {
 
     return (
         <>
-        <nav>
             <Link to={"/Home"}>What to see?</Link>
 
             <Link to={"/ComparePage"}><LuTv />Hva skal jeg se?</Link>
@@ -28,7 +27,6 @@ export default function Header({userName}) {
             <Link to={"/GenresPage"}>Bla gjennom sjangere</Link>
 
             <Link to={"/"}><FaRegUserCircle />{userName}</Link>
-        </nav>
         </>
     )
 }

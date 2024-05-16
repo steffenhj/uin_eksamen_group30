@@ -7,8 +7,15 @@ import Login from "./Login";
 export default function Layout({children, userName}){
     return(
     <>
-        <Header userName={userName}/>
-        {children}
+        <nav>
+            <Header userName={userName}/>
+        </nav>
+        <main>
+            {children}
+        </main>
+        <footer>
+            <p>footer??</p>
+        </footer>
     </>
     )
 }
