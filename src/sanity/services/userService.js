@@ -13,6 +13,7 @@ export async function fetchAllUsersInfo(userName) {
 
     const data = await client.fetch(`${query} { 
         name ,
+        _id ,
         favoriteMovies[]->{
             _id,
             title,
