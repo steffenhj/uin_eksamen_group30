@@ -4,15 +4,13 @@ import { fetchAllUsersInfo } from "../sanity/services/userService"
 import { Link } from "react-router-dom"
 import '../styles/css/main.css'
 
-export default function Home({users}){
+export default function Home({users, userName, setUserName, userData, setUserData}){
     if (!users || users.length === 0) {
         return <p>Loading...</p>
     }
 
     console.log("USERS IN HOME", users)
 
-    const [userName, setUserName] = useState('')
-    const [userData, setUserData] = useState ({})
 
     useEffect(()=>{
         const user = JSON.parse(localStorage.getItem("user"));

@@ -25,12 +25,15 @@ function App() {
     getAllUsers()
   },[])  
 
+  const [userName, setUserName] = useState('')
+  const [userData, setUserData] = useState ({})
+
   return (
     <>
-      <Layout>
+      <Layout userName={userName}>
         <Routes>
             <Route path="/" element={<Login users={users} setUsers={setUsers}/>}/>
-            <Route path="/Home" element={<Home users={users} />}/>
+            <Route path="/Home" element={<Home users={users} userName={userName} setUserName={setUserName} userData={userData} setUserData={setUserData} />}/>
             <Route path="/ComparePage" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>
         </Routes>

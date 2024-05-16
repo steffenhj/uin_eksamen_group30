@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { LuTv } from "react-icons/lu";
 
-export default function Header() {
+export default function Header({userName}) {
     const [movies, setMovie] = useState({})
 
     const getAllMovies = async ()=> {
@@ -27,7 +27,7 @@ export default function Header() {
             
             <Link to={"/GenresPage"}>Bla gjennom sjangere</Link>
 
-            <Link to={"/"}><FaRegUserCircle />bruker</Link>
+            <Link to={"/"}><FaRegUserCircle />{userName}</Link>
         </nav>
         </>
     )
