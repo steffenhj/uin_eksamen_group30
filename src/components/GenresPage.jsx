@@ -11,6 +11,7 @@ const [genres, setGenres] = useState([])
 const [userGenres, setUserGenres] = useState([])
 const [favoriteGenre, setFavoriteGenre] = useState([])
 const [user, setUser] = useState([])
+const [userId, setUserId] = useState(null)
 
   const getAllGenres = async ()=> {
     const data = await fetchAllGenre()
@@ -23,7 +24,7 @@ const [user, setUser] = useState([])
     const userData = localStorage.getItem('user');
     const { name } = JSON.parse(userData);
     userGenres?.map((item, index) => 
-    {item.name === name ? setUser(item) : null}
+    {item.name === name ? (setUser(item), setUserId(item._id)) : null}
     )
   }
 
@@ -39,19 +40,22 @@ const [user, setUser] = useState([])
   }
 
   //fix this writeclient
-  const handleAddFavoriteClick = async(e, genre, user) => {
-    const l = await updateFavorite(user, genre)
+  const handleAddFavoriteClick = async(e, genre) => {
+    e.preventDefault()
+    console.log("GID:", genre,"UID:", userId)
+    const l = await updateFavorite(userId, genre)
+    console.log(l)
   }
 
-  function handleAddFavoriteClicke(genre, user){
-    console.log("Clicked", genre, user)
-    updateFavorite(user, genre)
+  function handleAddFavoriteClicke(){
+    console.log("Clicked", addGenreToSanity, userId)
+    updateFavorite(userId, addGenreToSanity)
   }
 
   function handleFavoriteStar(genre){
     let count = 0;
     favoriteGenre?.map((fav, ind) => 
-      {if(genre.includes(fav.genre)){
+      {if(genre === fav.genre){
         count++;
       }
     }
@@ -63,16 +67,17 @@ const [user, setUser] = useState([])
     }
   }
 
-  function handleFavoriteAdd(genre){
+  function handleFavoriteAdd(genreArr){
     let count = 0;
     favoriteGenre?.map((fav, ind) => 
-      {if(genre.includes(fav.genre)){
+      {if(genreArr.genre === fav.genre){
         count++;
       }
     }
     )
     if(count === 0){
-      return <p className="addFav" onClick={(e)=>handleAddFavoriteClick(genre, user)}>Add to favorite</p>
+      
+      return <p className="addFav" onClick={(e)=>handleAddFavoriteClick(e,genreArr)}>Add to favorite</p>
     }else{
       return <p className="alreadyFav">Favorite-Genre</p>
     }
@@ -94,8 +99,7 @@ useEffect(()=>{
               <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}
               {handleFavoriteStar(item.genre)}
               </p>
-
-              {handleFavoriteAdd(item.genre)}
+              {handleFavoriteAdd(item)}
 
             </li>
             )
