@@ -79,7 +79,7 @@ const [userId, setUserId] = useState(null)
       
       return <p className="addFav" onClick={(e)=>handleAddFavoriteClick(e,genreArr)}>Add to favorite</p>
     }else{
-      return <p className="alreadyFav">Favorite-Genre</p>
+      return <p className="alreadyFav">Favorited</p>
     }
   }
 
