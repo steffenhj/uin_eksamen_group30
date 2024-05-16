@@ -4,10 +4,10 @@ import Home from "./Home";
 import MovieCard from "./MovieCard";
 import Login from "./Login";
 
-export default function Layout({children}){
+export default function Layout({children, userSelected, setUserSelected}){
     return(
     <>
-        <Header />
+        {userSelected && <Header setUserSelected={setUserSelected}/>}
         {children}
     </>
     )

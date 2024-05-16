@@ -4,12 +4,16 @@ import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { LuTv } from "react-icons/lu";
 
-export default function Header() {
+export default function Header({setUserSelected}) {
     const [movies, setMovie] = useState({})
 
     const getAllMovies = async ()=> {
         const data = await fetchAllMovies()
         setMovie(data)
+    }
+
+    const handleUserClick = () => {
+        setUserSelected(false)
     }
 
     useEffect(()=>{
@@ -27,7 +31,7 @@ export default function Header() {
             
             <Link to={"/GenresPage"}>Bla gjennom sjangere</Link>
 
-            <Link to={"/"}><FaRegUserCircle />bruker</Link>
+            <Link to={"/"} onClick={handleUserClick}><FaRegUserCircle />bruker</Link>
         </nav>
         </>
     )

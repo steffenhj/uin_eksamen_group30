@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { fetchAllUsers } from './sanity/services/userService'
 
@@ -17,6 +17,8 @@ function App() {
 
   const [users, setUsers] = useState([])
 
+  const [userSelected, setUserSelected] = useState(false)
+
   useEffect(()=>{
     const getAllUsers = async ()=> {
         const data = await fetchAllUsers()
@@ -27,9 +29,9 @@ function App() {
 
   return (
     <>
-      <Layout>
+      <Layout userSelected={userSelected} setUserSelected={setUserSelected}>
         <Routes>
-            <Route path="/" element={<Login users={users} setUsers={setUsers}/>}/>
+            <Route path="/" element={<Login users={users} setUsers={setUsers} setUserSelected={setUserSelected}/>}/>
             <Route path="/Home" element={<Home users={users} />}/>
             <Route path="/ComparePage" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>
