@@ -54,10 +54,9 @@ export default function Home({users, handleClick}){
             <article>
                 <h3>Jeg skal se sammen med...</h3>
                 {otherUsers.map((user, index)=>(
-                    <Link to="/ComparePage" key={index}>
-                        <button  onClick={()=>handleClick(user)}>
+                    <Link to={"/ComparePage/" + user.slug} key={index}>
+                            {user.slug}
                             {user.name} 
-                        </button>
                     </Link>
                 ))}
             </article>
