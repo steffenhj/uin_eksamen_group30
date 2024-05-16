@@ -4,7 +4,7 @@ import { fetchAllUsersInfo } from "../sanity/services/userService"
 import { Link } from "react-router-dom"
 import '../styles/css/main.css'
 
-export default function Home({users, userName, setUserName, userData, setUserData}){
+export default function Home({users, userName, setUserName}){
     if (!users || users.length === 0) {
         return <p>Loading...</p>
     }

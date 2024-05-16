@@ -13,9 +13,6 @@ export default function Layout({children, userName}){
         <main>
             {children}
         </main>
-        <footer>
-            <p>footer??</p>
-        </footer>
     </>
     )
 }
