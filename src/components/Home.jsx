@@ -5,9 +5,6 @@ import { Link } from "react-router-dom"
 import '../styles/css/main.css'
 
 export default function Home({users}){
-    if (!users || users.length === 0) {
-        return <p>Loading...</p>
-    }
 
     console.log("USERS IN HOME", users)
 
