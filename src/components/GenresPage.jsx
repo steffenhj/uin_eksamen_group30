@@ -42,8 +42,8 @@ const [userId, setUserId] = useState(null)
   //fix this writeclient
   const handleAddFavoriteClick = async(e, genre) => {
     e.preventDefault()
-    console.log("GID:", genre,"UID:", userId)
-    const l = await updateFavorite(userId, genre)
+    console.log("GenreID:", genre.genre,"UserID:", userId)
+    const l = await updateFavorite(userId, genre.genre)
     console.log(l)
   }
 
