@@ -10,6 +10,8 @@ import Layout from './components/Layout'
 import Login from './components/Login'
 import Home from './components/Home'
 import ComparePage from './components/ComparePage'
+import GenresPage from './components/GenresPage'
+import Header from './components/Header'
 
 function App() {
 
@@ -30,6 +32,7 @@ function App() {
             <Route path="/" element={<Login users={users} setUsers={setUsers}/>}/>
             <Route path="/Home" element={<Home users={users} />}/>
             <Route path="/ComparePage" element={<ComparePage />} ></Route>
+            <Route path="/GenresPage" element={<GenresPage />} ></Route>
         </Routes>
       </Layout>
     </>
