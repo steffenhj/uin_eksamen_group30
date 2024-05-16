@@ -7,9 +7,9 @@ import Login from "./Login";
 export default function Layout({children, userSelected, setUserSelected, userName}){
     return(
     <>
-        <nav>
-            {userSelected && <Header setUserSelected={setUserSelected} userName={userName}/>}
-        </nav>
+        
+        {userSelected && <Header setUserSelected={setUserSelected} userName={userName}/>}
+        
         <main>
             {children}
         </main>

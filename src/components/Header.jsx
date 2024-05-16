@@ -25,6 +25,7 @@ export default function Header({setUserSelected, userName}) {
 
     return (
         <>
+        <nav>
             <Link id="logo" to={"/Home"}>What to see?</Link>
 
             <div>
@@ -34,6 +35,7 @@ export default function Header({setUserSelected, userName}) {
 
                 <Link to={"/"} onClick={handleUserClick}><FaRegUserCircle /> {userName}</Link>
             </div>
+        </nav>
         </>
     )
 }
