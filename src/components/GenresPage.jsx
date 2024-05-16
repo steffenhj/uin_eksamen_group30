@@ -23,13 +23,13 @@ const [user, setUser] = useState([])
     const userData = localStorage.getItem('user');
     const { name } = JSON.parse(userData);
     userGenres?.map((item, index) => 
-    {item.name === name ? setUser(name) : null}
+    {item.name === name ? setUser(item) : null}
     )
   }
 
   function getUserFavorite(){
     userGenres?.map((item, index) => 
-    {if (item.name === user){
+    {if (item.name === user.name){
       setFavoriteGenre(item.favoriteGenres)
     }
   })}

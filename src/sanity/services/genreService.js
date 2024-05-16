@@ -7,10 +7,10 @@ export async function fetchAllGenre() {
     }`);
     return data;
 }
-export async function updateFavorite(user, genre) {
+export async function updateFavorite(userId, genre) {
     const result = await writeClient
-    .patch(user).setIfMissing({users: []})
-    .append("users", [{favoriteGenres: genre}])
+    .patch(userId).setIfMissing({favoriteGenres: []})
+    .append("favoriteGenres", [{favoriteGenres: genre}])
     .commit({autoGenerateArrayKeys: true})
     .then(() => {return "Success"})
     .catch((error) => {return "Error: " + error.message})
