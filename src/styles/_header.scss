@@ -1,7 +1,32 @@
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0.7rem 2rem 0.7rem;
+    background-color: #333557;
+
     a {
         color: white;
     }
+
+    div {
+        a{
+            padding: 0.5rem;
+        }
+        #home {
+            color: black;
+            background-color: #F4ABC5;
+        }
+
+        #genres {
+            text-decoration: underline;
+        }
+    
+    }
+
+    #logo {
+        font-size: 2rem;
+        text-decoration: underline;
+    }
+
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { fetchAllUsers } from './sanity/services/userService'
 
@@ -16,6 +16,14 @@ import Header from './components/Header'
 function App() {
 
   const [users, setUsers] = useState([])
+  const [compareToUser, setCompareToUser] = useState('')
+
+  function handleClick(user){
+    localStorage.setItem("userToCompare", JSON.stringify(user));
+    setCompareToUser(user)
+  }
+
+  const [userSelected, setUserSelected] = useState(false)
 
   useEffect(()=>{
     const getAllUsers = async ()=> {
@@ -25,12 +33,14 @@ function App() {
     getAllUsers()
   },[])  
 
+  const [userName, setUserName] = useState('')
+
   return (
     <>
-      <Layout>
+      <Layout userSelected={userSelected} setUserSelected={setUserSelected} userName={userName}>
         <Routes>
-            <Route path="/" element={<Login users={users} setUsers={setUsers}/>}/>
-            <Route path="/Home" element={<Home users={users} />}/>
+            <Route path="/" element={<Login users={users} setUsers={setUsers} setUserSelected={setUserSelected}/>}/>
+            <Route path="/Home" element={<Home users={users} userName={userName} setUserName={setUserName} />}/>
             <Route path="/ComparePage" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>
         </Routes>
