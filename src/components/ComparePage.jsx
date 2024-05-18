@@ -71,9 +71,11 @@ export default function ComparePage() {
                 <p>Dere liker begge disse sjangerne, se hvilke filmer dere kan velge mellom: </p>
                 {commonGenres.map((genre, index)=>(
 
-                <Link to="/GenresPage" key={index}>
+                <Link to={"/GenrePage/" + genre.genre} key={index}>
                     <p key={index}>{genre.genre}</p>
                 </Link>
+
+                
 
                 ))}
             </article>
