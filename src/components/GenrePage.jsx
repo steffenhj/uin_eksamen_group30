@@ -1,31 +1,31 @@
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import { useParams } from "react-router-dom";
-import { fetchAllMovies, fetchGenreMovies } from "../sanity/services/movieService";
+import { fetchGenreMovies } from "../sanity/services/movieService";
 
 export default function GenrePage() {
-  const [genre, setGenre] = useState([])
+
   const[genreMovies, setGenreMovies] =useState([])
 
   const {slug} = useParams()
    
   const getGenreMovies = async (slug) => {
     console.log("hallo", slug)
-    const data = await fetchGenreMovies("Animation") 
+    const data = await fetchGenreMovies(slug) 
     
     setGenreMovies(data)
   }
 
 
   useEffect(()=> {
-    getGenreMovies()
+    getGenreMovies(slug)
   }, [slug, genreMovies])
 
 
-console.log("sjangerfilm",genreMovies)
+// console.log("sjangerfilm",genreMovies)
 
   
- console.log("hva er dette",slug)
+//  console.log("hva er dette",slug)
 
   return (
     <>
