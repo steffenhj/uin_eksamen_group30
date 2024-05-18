@@ -4,6 +4,7 @@ import MovieCard from "./MovieCard"
 import { Link, useParams } from 'react-router-dom';
 
 export default function ComparePage() {
+    const {slug} = useParams();
 
     const [userName, setUserName] = useState('')
     const [userToCompare, setUserToCompare] = useState('')
@@ -13,9 +14,8 @@ export default function ComparePage() {
     useEffect(()=>{
         const user = JSON.parse(localStorage.getItem("user"));
         setUserName(user.name)
-
-        const userToCompare = JSON.parse(localStorage.getItem("userToCompare"));
-        setUserToCompare(userToCompare.name)
+        setUserToCompare(slug)
+        
 
         const fetchUserData = async ()=> {
             try {
@@ -27,8 +27,6 @@ export default function ComparePage() {
         }
         fetchUserData();
     }, []);
-
-    const {slug} = useParams();
 
     const getUserBySlug = async (slug) => {
         const data = await fetchUserBySlug(slug)
