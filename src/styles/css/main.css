@@ -105,6 +105,36 @@ nav #logo {
     margin-top: 1rem;
   }
 }
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+section article {
+  margin: 0 1.5rem;
+}
+
+.wishlist-favorite {
+  background-color: rgba(95, 95, 95, 0.096);
+}
+.wishlist-favorite ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.wishlist-favorite ul li {
+  margin: 0 1rem;
+}
+.wishlist-favorite .lists {
+  display: flex;
+  flex-direction: column;
+}
+.wishlist-favorite .lists li {
+  margin-bottom: 0.5rem;
+}
+
 #root {
   padding-top: 0;
 }/*# sourceMappingURL=main.css.map */

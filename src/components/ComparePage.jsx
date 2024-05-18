@@ -62,23 +62,26 @@ export default function ComparePage() {
             {if(imdb.includes(favMovie.imdb)){
                 count++;
                 
-            } else{
-                return (<MovieCard movieImdb={imdb}/>);
-            }}
+            }} 
         })
         if(count === 0){
-            return <p>{userToCompare} Favorite List
-            <p>{userName} WishList</p><MovieCard movieImdb={imdb}/></p>
+            return <ul className='lists'> 
+                        <li>{userToCompare} Favorittliste </li>
+                        <li>{userName} Ønskeliste </li>
+                   </ul>
         }else{
-            return <p>{userName} Favorite List
-            <p>{userToCompare} WishList</p><MovieCard movieImdb={imdb}/></p>
+            return <ul className='lists'>
+                        <li>{userName} Favorittliste </li>
+                        <li>{userToCompare} Ønskeliste </li>
+                  </ul>
         }
     }
 
     return (
+        <>
+        <h2>FORSLAG FOR {userName.toUpperCase()} OG {userToCompare.toUpperCase()}</h2>
+
         <section>
-            <h1>Compare Page</h1>
-            <h2>FORSLAG FOR {userName.toUpperCase()} OG {userToCompare.toUpperCase()}</h2>
 
             <article>
                 <h3>Catch Up!</h3>
@@ -99,28 +102,30 @@ export default function ComparePage() {
             <article>
                 <h3>Utforsk!</h3>
                 <p>Dere liker begge disse sjangerne, se hvilke filmer dere kan velge mellom: </p>
+                <ul>
                 {commonGenres.map((genre, index)=>(
 
                 <Link to={"/GenrePage/" + genre.genre} key={index}>
-                    <p key={index}>{genre.genre}</p>
+                    <li key={index}>{genre.genre}</li>
                 </Link>
                 ))}
-            </article>
-
-            <article>
-                <h3>ønskeliste og favoritter!</h3>
-                {wishlistAndFavorite.map((movie, index)=>
-                <p key={index}>
-                    {handleDisplay(movie.imdb)}
-                </p>
-                
-            )
-                
-                
-                }
-                
-
+                </ul>
             </article>
         </section>
+
+        <section className='wishlist-favorite'>
+            <article>
+                <h3>ønskeliste og favoritter!</h3>
+                <ul>
+                    {wishlistAndFavorite.map((movie, index)=>
+                    <li key={index}>
+                        {handleDisplay(movie.imdb)}
+                        <MovieCard key = {index} movieImdb={movie.imdb} />
+                    </li>
+                )}
+                </ul>
+            </article>
+        </section>
+        </>
     )
 }
