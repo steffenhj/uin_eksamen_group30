@@ -55,6 +55,26 @@ export default function ComparePage() {
 
     const wishlistAndFavorite = [...favoriteWishlist, ...wishlistFavorite]
 
+    function handleDisplay(imdb){
+
+        let count = 0;
+        userData[0]?.favoriteMovies.map((favMovie, ind) => {
+            {if(imdb.includes(favMovie.imdb)){
+                count++;
+                
+            } else{
+                return (<MovieCard movieImdb={imdb}/>);
+            }}
+        })
+        if(count === 0){
+            return <p>{userToCompare} Favorite List
+            <p>{userName} WishList</p><MovieCard movieImdb={imdb}/></p>
+        }else{
+            return <p>{userName} Favorite List
+            <p>{userToCompare} WishList</p><MovieCard movieImdb={imdb}/></p>
+        }
+    }
+
     return (
         <section>
             <h1>Compare Page</h1>
@@ -89,9 +109,16 @@ export default function ComparePage() {
 
             <article>
                 <h3>ønskeliste og favoritter!</h3>
-                {wishlistAndFavorite.map((movie, index)=>(
-                <MovieCard key = {index} movieImdb={movie.imdb} /> 
-                ))}
+                {wishlistAndFavorite.map((movie, index)=>
+                <p key={index}>
+                    {handleDisplay(movie.imdb)}
+                </p>
+                
+            )
+                
+                
+                }
+                
 
             </article>
         </section>
