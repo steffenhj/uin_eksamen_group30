@@ -39,35 +39,21 @@ export default function ComparePage() {
 
     // Må endre slik at en bruker ikke kan gå til innloggingssiden uten å logge ut, for nå er det mulig å compare stig mot stig.
 
-    const favoriteWishlist = function() {
-            for (let i = 0; i < userData[0]?.favoriteMovies.length; i++) {
-                for (let j = 0; j < userToCompareData[0]?.wishlist.length; j++) {
-                    if (userData[0]?.favoriteMovies[i].imdb !== userToCompareData[0]?.wishlist[j].imdb) {
-                        newArray.push(userData[0]?.favoriteMovies[i])
-                    }
-                }
-            }
-
-            for (let i = 0; i < userToCompareData[0]?.favoriteMovies.length; i++) {
-                for (let j = 0; j < userData[0]?.wishlist.length; j++) {
-                    if (userData[0]?.favoriteMovies[i].imdb !== userToCompareData[0]?.wishlist[j].imdb) {
-                        newArray.push(userToCompareData[0]?.favoriteMovies[i])
-                    }
-                }
-            }
-
-
-    }
-
     const commonFavorites = userData[0]?.favoriteMovies.filter(movie1 => userToCompareData[0]?.favoriteMovies.some(movie2 => movie1.imdb === movie2.imdb)) || []
 
     const commonWishList = userData[0]?.wishlist.filter(movie1 => userToCompareData[0]?.wishlist.some(movie2 => movie1.imdb === movie2.imdb)) || []
 
     const commonGenres = userData[0]?.favoriteGenres.filter(genre1 => userToCompareData[0]?.favoriteGenres.some(genre2 => genre1.genre === genre2.genre)) || []
 
-    const newArray = [];
+    const favoriteWishlist = userData[0]?.favoriteMovies.filter(movie1 => userToCompareData[0]?.wishlist.some(movie2 => movie1.imdb === movie2.imdb)
+    && !commonFavorites.some(commonMovie => commonMovie.imdb === movie1.imdb)
+    && !commonWishList.some(commonMovie => commonMovie.imdb === movie1.imdb) ) || []
 
-    console.log("CRISS CROSS", newArray)
+    const wishlistFavorite = userToCompareData[0]?.favoriteMovies.filter(movie1 => userData[0]?.wishlist.some(movie2 => movie1.imdb === movie2.imdb) 
+    && !commonWishList.some(commonMovie => commonMovie.imdb === movie1.imdb) 
+    && !commonFavorites.some(commonMovie => commonMovie.imdb === movie1.imdb)) || []
+
+    const wishlistAndFavorite = [...favoriteWishlist, ...wishlistFavorite]
 
     return (
         <section>
@@ -102,9 +88,8 @@ export default function ComparePage() {
             </article>
 
             <article>
-                {favoriteWishlist()}
                 <h3>ønskeliste og favoritter!</h3>
-                {newArray.map((movie, index)=>(
+                {wishlistAndFavorite.map((movie, index)=>(
                 <MovieCard key = {index} movieImdb={movie.imdb} /> 
                 ))}
 
