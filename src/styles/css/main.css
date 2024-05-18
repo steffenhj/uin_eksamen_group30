@@ -105,12 +105,12 @@ nav #logo {
     margin-top: 1rem;
   }
 }
-section {
+.compare-users {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-section article {
+.compare-users article {
   margin: 0 1.5rem;
 }
 

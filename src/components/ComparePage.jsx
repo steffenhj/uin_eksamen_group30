@@ -81,7 +81,7 @@ export default function ComparePage() {
         <>
         <h2>FORSLAG FOR {userName.toUpperCase()} OG {userToCompare.toUpperCase()}</h2>
 
-        <section>
+        <section className='compare-users'>
 
             <article>
                 <h3>Catch Up!</h3>
