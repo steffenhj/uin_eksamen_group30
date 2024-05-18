@@ -12,6 +12,7 @@ import Home from './components/Home'
 import ComparePage from './components/ComparePage'
 import GenresPage from './components/GenresPage'
 import Header from './components/Header'
+import GenrePage from './components/GenrePage'
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
             <Route path="/Home" element={<Home users={users} userName={userName} setUserName={setUserName} />}/>
             <Route path="/ComparePage/:slug" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>
+            <Route path='/GenrePage/:slug' element={<GenrePage/>}></Route>
         </Routes>
       </Layout>
     </>
