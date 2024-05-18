@@ -36,7 +36,7 @@ const [userId, setUserId] = useState(null)
   })}
 
   function handleTitleClick(genre){
-    console.log("Clicked", genre)
+    console.log("Click", genre)
   }
 
   //fix this writeclient
