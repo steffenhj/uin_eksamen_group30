@@ -36,23 +36,12 @@ const [userId, setUserId] = useState(null)
     }
   })}
 
-  function handleTitleClick(genre){
-    console.log("Clicked", genre)
-  }
-
-  //fix this writeclient
   const handleAddFavoriteClick = async(e, genre) => {
     e.preventDefault()
-    console.log("GenreID:", genre._id,"UserID:", userId)
-    console.log(genre)
     const l = await updateFavorite(userId, genre._id)
     console.log(l)
   }
 
-  function handleAddFavoriteClicke(){
-    console.log("Clicked", addGenreToSanity, userId)
-    updateFavorite(userId, addGenreToSanity)
-  }
 
   function handleFavoriteStar(genre){
     let count = 0;
@@ -74,16 +63,13 @@ const [userId, setUserId] = useState(null)
     favoriteGenre?.map((fav, ind) => 
       {if(genreArr.genre === fav.genre){
         count++;
-        console.log("e", fav.genre, genreArr.genre)
       }
     }
     )
     if(count !== 0){
       return <p className="alreadyFav">Favorited</p>
     }else{
-      console.log(count)
       return <p className="addFav" onClick={(e)=>handleAddFavoriteClick(e,genreArr)}>Add to favorite</p>
-
     }
   }
 
@@ -102,7 +88,7 @@ useEffect(()=>{
             genres?.map((item, index) => 
             <li key={index} className="genres">
               <Link to={`/GenrePage/${item.genre}`}>
-              <p className="genre" onClick={()=>handleTitleClick(item.genre)}>{item.genre}    
+              <p className="genre" >{item.genre}    
               {handleFavoriteStar(item.genre)}
               </p>
               </Link>
