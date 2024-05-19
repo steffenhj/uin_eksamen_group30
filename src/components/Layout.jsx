@@ -4,11 +4,11 @@ import Home from "./Home";
 import MovieCard from "./MovieCard";
 import Login from "./Login";
 
-export default function Layout({children, logedIn, setLogedIn, userName}){
+export default function Layout({children, logedIn, setLogedIn, userName, setUserName}){
     return(
     <>
         <header>
-            {logedIn && <Header setLogedIn={setLogedIn} userName={userName}/>}
+            {logedIn && <Header setLogedIn={setLogedIn} userName={userName} setUserName={setUserName}/>}
         </header>
         <main>
             {children}

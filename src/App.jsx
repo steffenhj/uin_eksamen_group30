@@ -40,10 +40,10 @@ function App() {
 
   return (
     <>
-      <Layout logedIn={logedIn} setLogedIn={setLogedIn} userName={userName}  >
+      <Layout logedIn={logedIn} setLogedIn={setLogedIn} userName={userName} setUserName={setUserName} >
         <Routes>
             <Route path="/" element={<Login users={users} setUsers={setUsers} setLogedIn={setLogedIn} />}/>
-            <Route path="/Home" element={<Home users={users} userName={userName} setUserName={setUserName} />}/>
+            <Route path="/Home" element={<Home users={users} userName={userName} />}/>
             <Route path="/ComparePage/:slug" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>
             <Route path='/GenrePage/:slug' element={<GenrePage/>}></Route>

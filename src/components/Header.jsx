@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { LuTv } from "react-icons/lu";
 
-export default function Header({setLogedIn, userName}) {
+export default function Header({setLogedIn, userName, setUserName}) {
 
     const [movies, setMovie] = useState({})
 
@@ -20,6 +20,10 @@ export default function Header({setLogedIn, userName}) {
 
     useEffect(()=>{
         getAllMovies()
+
+        const user = JSON.parse(localStorage.getItem("user"));
+        setUserName(user.name)
+
     },[])
 
     console.log("MOVIES", movies)
