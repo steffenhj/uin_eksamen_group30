@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 import { fetchAllUsers } from "../sanity/services/userService";
 
-export default function Login({users, setUsers, setUserSelected}){
-
+export default function Login({users, setUsers, setLogedIn}){
 
     const [selectedUser, setSelectedUser] = useState(null)
 
     const handleItemClick = (user) => {
-        localStorage.setItem("user", JSON.stringify(user));
-
+        localStorage.setItem("user", JSON.stringify(user));        
         setSelectedUser(user)
-        setUserSelected(true) 
+
+        setLogedIn(true) 
+        localStorage.setItem("logedIn", true);
     
     }
 

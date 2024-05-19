@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { fetchAllUsers } from './sanity/services/userService'
 
@@ -18,13 +18,19 @@ function App() {
 
   const [users, setUsers] = useState([])
   const [compareToUser, setCompareToUser] = useState('')
+  const [userName, setUserName] = useState('')
+  const [logedIn, setLogedIn] = useState(()=>{
+    const data = localStorage.getItem("logedIn")
+    const logedInData = JSON.parse(data)
+    return logedInData || false
+  })
+  const location = useLocation()
+  // Kilde til hvordan bruke useLocation: https://medium.com/codingbeauty-tutorials/react-router-get-current-route-9c2e6bd8d689
 
   function handleClick(user){
     localStorage.setItem("userToCompare", JSON.stringify(user));
     setCompareToUser(user)
   }
-
-  const [userSelected, setUserSelected] = useState(false)
 
   useEffect(()=>{
     const getAllUsers = async ()=> {
@@ -34,14 +40,19 @@ function App() {
     getAllUsers()
   },[])  
 
-  const [userName, setUserName] = useState('')
+  useEffect(()=>{
+    if (location.pathname === "/"){
+      setLogedIn(false)
+      localStorage.setItem("logedIn", false)
+    } 
+  },[location])
 
   return (
     <>
-      <Layout userSelected={userSelected} setUserSelected={setUserSelected} userName={userName}>
+      <Layout logedIn={logedIn} setLogedIn={setLogedIn} userName={userName} setUserName={setUserName} >
         <Routes>
-            <Route path="/" element={<Login users={users} setUsers={setUsers} setUserSelected={setUserSelected}/>}/>
-            <Route path="/Home" element={<Home users={users} userName={userName} setUserName={setUserName} />}/>
+            <Route path="/" element={<Login users={users} setUsers={setUsers} setLogedIn={setLogedIn} />}/>
+            <Route path="/Home" element={<Home users={users} userName={userName} />}/>
             <Route path="/ComparePage/:slug" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>
             <Route path='/GenrePage/:slug' element={<GenrePage/>}></Route>
