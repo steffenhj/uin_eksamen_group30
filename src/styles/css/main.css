@@ -135,6 +135,22 @@ nav #logo {
   margin-bottom: 0.5rem;
 }
 
+.genrepage h3 {
+  color: white;
+}
+.genrepage ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+}
+.genrepage ul li {
+  padding: 10px;
+  background-color: #313359;
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
 #root {
   padding-top: 0;
 }/*# sourceMappingURL=main.css.map */

@@ -10,7 +10,7 @@ export default function GenrePage() {
   const {slug} = useParams()
    
   const getGenreMovies = async (slug) => {
-    console.log("hallo", slug)
+    //console.log("hallo", slug)
     const data = await fetchGenreMovies(slug) 
     
     setGenreMovies(data)
