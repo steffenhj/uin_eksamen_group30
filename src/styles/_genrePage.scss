@@ -1,0 +1,19 @@
+
+    .genrepage{
+        h3{
+            color: white;
+        }
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        justify-content: center;
+
+        li{
+            padding: 10px;
+            background-color: #313359;
+            margin-right: 50px;
+            margin-top: 20px;
+        }
+    }
+}
