@@ -18,13 +18,17 @@ function App() {
 
   const [users, setUsers] = useState([])
   const [compareToUser, setCompareToUser] = useState('')
+  const [userName, setUserName] = useState('')
+  const [logedIn, setLogedIn] = useState(()=>{
+    const data = localStorage.getItem("logedIn")
+    const logedInData = JSON.parse(data)
+    return logedInData || false
+  })
 
   function handleClick(user){
     localStorage.setItem("userToCompare", JSON.stringify(user));
     setCompareToUser(user)
   }
-
-  const [userSelected, setUserSelected] = useState(false)
 
   useEffect(()=>{
     const getAllUsers = async ()=> {
@@ -34,14 +38,12 @@ function App() {
     getAllUsers()
   },[])  
 
-  const [userName, setUserName] = useState('')
-
   return (
     <>
-      <Layout userSelected={userSelected} setUserSelected={setUserSelected} userName={userName}>
+      <Layout logedIn={logedIn} setLogedIn={setLogedIn} userName={userName} setUserName={setUserName} >
         <Routes>
-            <Route path="/" element={<Login users={users} setUsers={setUsers} setUserSelected={setUserSelected}/>}/>
-            <Route path="/Home" element={<Home users={users} userName={userName} setUserName={setUserName} />}/>
+            <Route path="/" element={<Login users={users} setUsers={setUsers} setLogedIn={setLogedIn} />}/>
+            <Route path="/Home" element={<Home users={users} userName={userName} />}/>
             <Route path="/ComparePage/:slug" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>
             <Route path='/GenrePage/:slug' element={<GenrePage/>}></Route>

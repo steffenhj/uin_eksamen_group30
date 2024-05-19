@@ -4,18 +4,16 @@ import Home from "./Home";
 import MovieCard from "./MovieCard";
 import Login from "./Login";
 
-export default function Layout({children, userSelected, setUserSelected, userName}){
+export default function Layout({children, logedIn, setLogedIn, userName, setUserName}){
     return(
     <>
-        
-        {userSelected && <Header setUserSelected={setUserSelected} userName={userName}/>}
-        
+        <header>
+            {logedIn && <Header setLogedIn={setLogedIn} userName={userName} setUserName={setUserName}/>}
+        </header>
         <main>
             {children}
         </main>
-        <footer>
-            <p>WhatToSee © 2024</p>
-        </footer>
+        <footer>WhatToSee © 2024</footer>
     </>
     )
 }
