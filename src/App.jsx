@@ -47,6 +47,10 @@ function App() {
     } 
   },[location])
 
+  if (!logedIn && location.pathname !== "/"){
+    return <Navigate to="/" />
+  }
+  
   return (
     <>
       <Layout logedIn={logedIn} setLogedIn={setLogedIn} userName={userName} setUserName={setUserName} >

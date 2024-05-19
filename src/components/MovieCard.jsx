@@ -15,7 +15,7 @@ export default function MovieCard({movieImdb}){
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '40b1ca00e0msha55318eca33c057p1a29bfjsndd4ccf3da3db',
+        'X-RapidAPI-Key': '4f8856fa82msh35ef08fde9e06acp1a6632jsnc3bb1d5a38b9',
         'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
       }
     };
