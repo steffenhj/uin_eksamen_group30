@@ -10,7 +10,7 @@ export default function GenrePage() {
   const {slug} = useParams()
    
   const getGenreMovies = async (slug) => {
-    //console.log("hallo", slug)
+  
     const data = await fetchGenreMovies(slug) 
     
     setGenreMovies(data)
@@ -22,15 +22,12 @@ export default function GenrePage() {
   }, [slug, genreMovies])
 
 
-// console.log("sjangerfilm",genreMovies)
-
-  
-//  console.log("hva er dette",slug)
 
   return (
     <>
     <section className="genrepage">
-      <h2>Sjanger: {slug?.charAt(0).toUpperCase() + slug?.slice(1)} ({genreMovies?.length} filmer)</h2> 
+      <h2>Sjanger: {slug?.charAt(0).toUpperCase() + slug?.slice(1)} ({genreMovies?.length} filmer)</h2> {/*  koden henter ut og oppdaterer indexen i antall filmer som finnes i hver av de ulike sjangerene*
+      kilde brukt: https://www.w3schools.com/jsref/jsref_charat.asp*/}
       
       <ul>
       {genreMovies.map((item, index) => <li key={"item" + index} > <MovieCard movieImdb={item.imdb} /></li> )}
