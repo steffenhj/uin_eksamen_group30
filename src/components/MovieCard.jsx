@@ -30,7 +30,7 @@ export default function MovieCard({movieImdb}){
         title: data.results?.titleText.text,
         movieId: data.results?.id,
         imageUrl: data.results?.primaryImage.url,
-        releaseYear: data.results?.releaseYear.year,
+        releaseYear: data.results?.releaseYear?.year || 'N/A',
         imageLink: `https://www.imdb.com/title/${movieImdb}`
       })
 
@@ -55,6 +55,7 @@ export default function MovieCard({movieImdb}){
         </a>
           <a href= {movieInfo.imageLink} target="_blank">
           <h3>{movieInfo.title} ({movieInfo.releaseYear})</h3>
+          {console.log("Movie Info:", movieInfo)}
           </a>
 
         </article>
