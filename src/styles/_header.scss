@@ -7,12 +7,15 @@ nav {
 
     a {
         color: white;
+        padding: 0.5rem;
     }
 
-    div {
-        a{
-            padding: 0.5rem;
-        }
+    ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: 1.5rem;
+
         #home {
             color: black;
             background-color: #F4ABC5;
@@ -35,14 +38,15 @@ nav {
     nav{
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
 
-        
-
-        div {
+        ul {
             display: flex;
             flex-direction: column;
 
-            a {
+            li {
                 margin-top: 1rem;
             }
         }
