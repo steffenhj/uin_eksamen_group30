@@ -56,9 +56,6 @@ export default function MovieCard({movieImdb}){
           <a href= {movieInfo.imageLink} target="_blank">
           <h3>{movieInfo.title} ({movieInfo.releaseYear})</h3>
           </a>
-         
-         {/* <p>{movieInfo.movieId}</p>  Viser bare filmens ID */}
-         {/* <p>{movieInfo.releaseYear}</p> */}
 
         </article>
 
