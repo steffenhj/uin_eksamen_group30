@@ -4,6 +4,7 @@ import MovieCard from "./MovieCard"
 import { Link, useParams } from 'react-router-dom';
 
 export default function ComparePage() {
+    const {slug} = useParams();
 
     const [userName, setUserName] = useState('')
     const [userToCompare, setUserToCompare] = useState('')
@@ -13,9 +14,8 @@ export default function ComparePage() {
     useEffect(()=>{
         const user = JSON.parse(localStorage.getItem("user"));
         setUserName(user.name)
-
-        const userToCompare = JSON.parse(localStorage.getItem("userToCompare"));
-        setUserToCompare(userToCompare.name)
+        setUserToCompare(slug)
+        
 
         const fetchUserData = async ()=> {
             try {
@@ -27,8 +27,6 @@ export default function ComparePage() {
         }
         fetchUserData();
     }, []);
-
-    const {slug} = useParams();
 
     const getUserBySlug = async (slug) => {
         const data = await fetchUserBySlug(slug)
@@ -47,10 +45,43 @@ export default function ComparePage() {
 
     const commonGenres = userData[0]?.favoriteGenres.filter(genre1 => userToCompareData[0]?.favoriteGenres.some(genre2 => genre1.genre === genre2.genre)) || []
 
+    const favoriteWishlist = userData[0]?.favoriteMovies.filter(movie1 => userToCompareData[0]?.wishlist.some(movie2 => movie1.imdb === movie2.imdb)
+    && !commonFavorites.some(commonMovie => commonMovie.imdb === movie1.imdb)
+    && !commonWishList.some(commonMovie => commonMovie.imdb === movie1.imdb) ) || []
+
+    const wishlistFavorite = userToCompareData[0]?.favoriteMovies.filter(movie1 => userData[0]?.wishlist.some(movie2 => movie1.imdb === movie2.imdb) 
+    && !commonWishList.some(commonMovie => commonMovie.imdb === movie1.imdb) 
+    && !commonFavorites.some(commonMovie => commonMovie.imdb === movie1.imdb)) || []
+
+    const wishlistAndFavorite = [...favoriteWishlist, ...wishlistFavorite]
+
+    function handleDisplay(imdb){
+
+        let count = 0;
+        userData[0]?.favoriteMovies.map((favMovie, ind) => {
+            {if(imdb.includes(favMovie.imdb)){
+                count++;
+                
+            }} 
+        })
+        if(count === 0){
+            return <ul className='lists'> 
+                        <li>{userToCompare} Favorittliste </li>
+                        <li>{userName} Ønskeliste </li>
+                   </ul>
+        }else{
+            return <ul className='lists'>
+                        <li>{userName} Favorittliste </li>
+                        <li>{userToCompare} Ønskeliste </li>
+                  </ul>
+        }
+    }
+
     return (
-        <section>
-            <h1>Compare Page</h1>
-            <h2>FORSLAG FOR {userName.toUpperCase()} OG {userToCompare.toUpperCase()}</h2>
+        <>
+        <h2>FORSLAG FOR {userName.toUpperCase()} OG {userToCompare.toUpperCase()}</h2>
+
+        <section className='compare-users'>
 
             <article>
                 <h3>Catch Up!</h3>
@@ -71,14 +102,30 @@ export default function ComparePage() {
             <article>
                 <h3>Utforsk!</h3>
                 <p>Dere liker begge disse sjangerne, se hvilke filmer dere kan velge mellom: </p>
+                <ul>
                 {commonGenres.map((genre, index)=>(
 
-                <Link to="/GenresPage" key={index}>
-                    <p key={index}>{genre.genre}</p>
+                <Link to={"/GenrePage/" + genre.genre} key={index}>
+                    <li key={index}>{genre.genre}</li>
                 </Link>
-
                 ))}
+                </ul>
             </article>
         </section>
+
+        <section className='wishlist-favorite'>
+            <article>
+                <h3>ønskeliste og favoritter!</h3>
+                <ul>
+                    {wishlistAndFavorite.map((movie, index)=>
+                    <li key={index}>
+                        {handleDisplay(movie.imdb)}
+                        <MovieCard key = {index} movieImdb={movie.imdb} />
+                    </li>
+                )}
+                </ul>
+            </article>
+        </section>
+        </>
     )
 }

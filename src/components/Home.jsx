@@ -4,13 +4,11 @@ import { fetchAllUsersInfo } from "../sanity/services/userService"
 import { Link } from "react-router-dom"
 import '../styles/css/main.css'
 
-export default function Home({users, handleClick, userName, setUserName}){
-    if (!users || users.length === 0) {
-        return <p>Loading...</p>
-    }
+export default function Home({users, handleClick}){
 
     console.log("USERS IN HOME", users)
 
+    const [userName, setUserName] = useState('')
     const [userData, setUserData] = useState ({})
 
     useEffect(()=>{
@@ -55,12 +53,15 @@ export default function Home({users, handleClick, userName, setUserName}){
             
             <article>
                 <h3>Jeg skal se sammen med...</h3>
-                {otherUsers.map((user, index)=>(
-                    <Link to={"/ComparePage/" + user.slug} key={index}>
-                            {user.slug}
-                            {user.name} 
-                    </Link>
-                ))}
+                <ul>
+                    {otherUsers.map((user, index)=>(
+                        <li className="users-link" key={index}>
+                            <Link to={"/ComparePage/" + user.slug} key={index}>
+                                    {user.name} 
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
             </article>
         </section>
         </>

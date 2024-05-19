@@ -18,9 +18,15 @@ section .genreList .genres .genre {
   color: rgb(51, 125, 255);
   cursor: pointer;
 }
-section .genreList .genres .starCase .star {
+section .genreList .genres .genre .star {
   color: yellow;
-  justify-content: left;
+  align-items: left;
+  cursor: default;
+}
+section .genreList .genres .genre .unCheckedStar {
+  color: white;
+  align-items: right;
+  cursor: default;
 }
 section .genreList .genres .addFav {
   font-size: 90%;
@@ -30,6 +36,11 @@ section .genreList .genres .addFav {
 section .genreList .genres .addFav:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+section .genreList .genres .alreadyFav {
+  font-size: 90%;
+  color: rgb(212, 201, 201);
+  padding-left: 1rem;
 }
 
 .main-content {
@@ -42,6 +53,9 @@ section .genreList .genres .addFav:hover {
 .main-content article {
   margin: 0 1rem;
 }
+.main-content .users-link {
+  margin: 0.5rem 0;
+}
 
 .movieCard {
   width: 200px;
@@ -51,4 +65,76 @@ section .genreList .genres .addFav:hover {
   width: 100%;
   height: auto;
   display: block;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0.7rem 2rem 0.7rem;
+  background-color: #333557;
+}
+nav a {
+  color: white;
+}
+nav div a {
+  padding: 0.5rem;
+}
+nav div #home {
+  color: black;
+  background-color: #F4ABC5;
+}
+nav div #genres {
+  text-decoration: underline;
+}
+nav #logo {
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  nav div {
+    display: flex;
+    flex-direction: column;
+  }
+  nav div a {
+    margin-top: 1rem;
+  }
+}
+.compare-users {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.compare-users article {
+  margin: 0 1.5rem;
+}
+
+.wishlist-favorite {
+  background-color: rgba(95, 95, 95, 0.096);
+}
+.wishlist-favorite ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.wishlist-favorite ul li {
+  margin: 0 1rem;
+}
+.wishlist-favorite .lists {
+  display: flex;
+  flex-direction: column;
+}
+.wishlist-favorite .lists li {
+  margin-bottom: 0.5rem;
+}
+
+#root {
+  padding-top: 0;
 }/*# sourceMappingURL=main.css.map */

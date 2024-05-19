@@ -7,8 +7,19 @@ export async function fetchAllMovies() {
         imdb,
         genres[]->{
             _id,
-            name
+            genre
         }
     }`);
     return data;
 }
+
+export async function fetchGenreMovies(genreName){
+    const data = await client.fetch(`*[_type == "movies" && $genreName in genres[]-> genre]{
+        title,
+        imdb
+    }`, {genreName})
+    return data
+}
+
+
+
