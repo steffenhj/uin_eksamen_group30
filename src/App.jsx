@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { fetchAllUsers } from './sanity/services/userService'
 
@@ -24,6 +24,8 @@ function App() {
     const logedInData = JSON.parse(data)
     return logedInData || false
   })
+  const location = useLocation()
+  // Kilde til hvordan bruke useLocation: https://medium.com/codingbeauty-tutorials/react-router-get-current-route-9c2e6bd8d689
 
   function handleClick(user){
     localStorage.setItem("userToCompare", JSON.stringify(user));
@@ -37,6 +39,13 @@ function App() {
     }
     getAllUsers()
   },[])  
+
+  useEffect(()=>{
+    if (location.pathname === "/"){
+      setLogedIn(false)
+      localStorage.setItem("logedIn", false)
+    } 
+  },[location])
 
   return (
     <>
