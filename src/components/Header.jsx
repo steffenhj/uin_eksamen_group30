@@ -33,13 +33,13 @@ export default function Header({setLogedIn, userName, setUserName}) {
         <nav>
             <Link id="logo" to={"/Home"}>What to see?</Link>
 
-            <div>
-                <Link id="home" to={"/Home"}><LuTv /> Hva skal jeg se?</Link>
+            <ul>
+                <li><Link id="home" to={"/Home"}><LuTv /> Hva skal jeg se?</Link></li>
             
-                <Link id="genres" to={"/GenresPage"}>Bla gjennom sjangere</Link>
+                <li><Link id="genres" to={"/GenresPage"}>Bla gjennom sjangere</Link></li>
 
-                <Link to={"/"} onClick={handleUserClick}><FaRegUserCircle /> {userName}</Link>
-            </div>
+                <li><Link to={"/"} onClick={handleUserClick}><FaRegUserCircle /> {userName}</Link></li>
+            </ul>
         </nav>
         </>
     )
