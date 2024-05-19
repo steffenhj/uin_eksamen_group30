@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { LuTv } from "react-icons/lu";
 
-export default function Header({setUserSelected, userName}) {
+export default function Header({setLogedIn, userName}) {
 
     const [movies, setMovie] = useState({})
 
@@ -14,7 +14,8 @@ export default function Header({setUserSelected, userName}) {
     }
 
     const handleUserClick = () => {
-        setUserSelected(false)
+        setLogedIn(false)
+        localStorage.setItem("logedIn", false)
     }
 
     useEffect(()=>{
@@ -25,6 +26,7 @@ export default function Header({setUserSelected, userName}) {
 
     return (
         <>
+        <nav>
             <Link id="logo" to={"/Home"}>What to see?</Link>
 
             <div>
@@ -34,6 +36,7 @@ export default function Header({setUserSelected, userName}) {
 
                 <Link to={"/"} onClick={handleUserClick}><FaRegUserCircle /> {userName}</Link>
             </div>
+        </nav>
         </>
     )
 }
