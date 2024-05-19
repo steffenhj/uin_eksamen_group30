@@ -39,7 +39,6 @@ const [userId, setUserId] = useState(null)
   const handleAddFavoriteClick = async(e, genre) => {
     e.preventDefault()
     const l = await updateFavorite(userId, genre._id)
-    console.log(l)
   }
 
 
