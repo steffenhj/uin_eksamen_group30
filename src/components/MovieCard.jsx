@@ -33,8 +33,6 @@ export default function MovieCard({movieImdb}){
         releaseYear: data.results?.releaseYear?.year || 'N/A',
         imageLink: `https://www.imdb.com/title/${movieImdb}`
       })
-
-
     } catch (error) {
       console.error(error);
     }
@@ -46,7 +44,6 @@ export default function MovieCard({movieImdb}){
 
   } , [])
 
-    //console.log("Movie Info:", movieInfo)
       return (
         <>
        <article className = "movieCard">
@@ -55,9 +52,7 @@ export default function MovieCard({movieImdb}){
         </a>
           <a href= {movieInfo.imageLink} target="_blank">
           <h3>{movieInfo.title} ({movieInfo.releaseYear})</h3>
-          {console.log("Movie Info:", movieInfo)}
           </a>
-
         </article>
 
 

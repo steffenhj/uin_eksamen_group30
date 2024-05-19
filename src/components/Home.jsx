@@ -6,8 +6,6 @@ import '../styles/css/main.css'
 
 export default function Home({users, handleClick, userName}){
 
-    console.log("USERS IN HOME", users)
-
     const [userData, setUserData] = useState ({})
 
     useEffect(()=>{
@@ -17,7 +15,6 @@ export default function Home({users, handleClick, userName}){
             try {
                 const userData = await fetchAllUsersInfo(user.name)
                 setUserData(userData)
-                console.log("USER DATA FOR SINGLE USER", userData)
             } catch (error) {
                 console.log("ERROR getting user data: ", error)
             }
@@ -25,9 +22,6 @@ export default function Home({users, handleClick, userName}){
 
         fetchUserData();
     }, []);
-
-    console.log("USERS FROM APP.JSX", users)
-    console.log (" hei jeg funker" ,userData)
 
     const otherUsers = users && users.length > 0 ? users.filter(user => user.name !== userName) : []
 

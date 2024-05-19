@@ -15,8 +15,6 @@ export default function Login({users, setUsers, setLogedIn}){
     
     }
 
-    console.log("USERS", users)
-
     return(
         <>
             <h1>Hvem skal se i dag?</h1>

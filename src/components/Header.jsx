@@ -26,8 +26,6 @@ export default function Header({setLogedIn, userName, setUserName}) {
 
     },[])
 
-    console.log("MOVIES", movies)
-
     return (
         <>
         <nav>
