@@ -74,14 +74,16 @@ const [userId, setUserId] = useState(null)
     favoriteGenre?.map((fav, ind) => 
       {if(genreArr.genre === fav.genre){
         count++;
+        console.log("e", fav.genre, genreArr.genre)
       }
     }
     )
-    if(count === 0){
-      
-      return <p className="addFav" onClick={(e)=>handleAddFavoriteClick(e,genreArr)}>Add to favorite</p>
-    }else{
+    if(count !== 0){
       return <p className="alreadyFav">Favorited</p>
+    }else{
+      console.log(count)
+      return <p className="addFav" onClick={(e)=>handleAddFavoriteClick(e,genreArr)}>Add to favorite</p>
+
     }
   }
 
@@ -105,7 +107,7 @@ useEffect(()=>{
               </p>
               </Link>
 
-              {handleFavoriteAdd(item.genre)}
+              {handleFavoriteAdd(item)}
 
             </li>
             )
