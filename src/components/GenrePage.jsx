@@ -29,7 +29,7 @@ export default function GenrePage() {
 
   return (
     <>
-    <section id="genrepage">
+    <section className="genrepage">
       <h2>Sjanger: {slug?.charAt(0).toUpperCase() + slug?.slice(1)} ({genreMovies?.length} filmer)</h2> 
       
       <ul>
