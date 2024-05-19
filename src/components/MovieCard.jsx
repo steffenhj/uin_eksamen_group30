@@ -29,7 +29,7 @@ export default function MovieCard({movieImdb}){
       setMovieInfo({
         title: data.results?.titleText.text,
         movieId: data.results?.id,
-        imageUrl: data.results?.primaryImage.url,
+        imageUrl: data.results?.primaryImage?.url || 'https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg',
         releaseYear: data.results?.releaseYear?.year || 'N/A',
         imageLink: `https://www.imdb.com/title/${movieImdb}`
       })
