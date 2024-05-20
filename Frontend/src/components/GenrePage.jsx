@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import { useParams } from "react-router-dom";
-import { fetchGenreMovies } from "../sanity/services/movieService";
+import { fetchGenreMovies } from "../../sanity/services/movieService";
 
 export default function GenrePage() {
 

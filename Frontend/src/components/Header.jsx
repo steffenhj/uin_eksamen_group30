@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchAllMovies } from "../sanity/services/movieService";
+import { fetchAllMovies } from "../../sanity/services/movieService";
 import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { LuTv } from "react-icons/lu";

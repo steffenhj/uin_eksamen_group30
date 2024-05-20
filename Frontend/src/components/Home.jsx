@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard"
 import { useEffect, useState } from "react"
-import { fetchAllUsersInfo } from "../sanity/services/userService"
+import { fetchAllUsersInfo } from "../../sanity/services/userService"
 import { Link } from "react-router-dom"
 import '../styles/css/main.css'
 

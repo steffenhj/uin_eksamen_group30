@@ -1,17 +1,15 @@
 import { useState } from 'react'
 import { Link, Navigate, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
-import { fetchAllUsers } from './sanity/services/userService'
+import { fetchAllUsers } from '../sanity/services/userService'
 
 import './App.css'
-import MovieCard from './components/MovieCard'
 import { Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import Login from './components/Login'
 import Home from './components/Home'
 import ComparePage from './components/ComparePage'
 import GenresPage from './components/GenresPage'
-import Header from './components/Header'
 import GenrePage from './components/GenrePage'
 
 function App() {
@@ -55,7 +53,7 @@ function App() {
     <>
       <Layout logedIn={logedIn} setLogedIn={setLogedIn} userName={userName} setUserName={setUserName} >
         <Routes>
-            <Route path="/" element={<Login users={users} setUsers={setUsers} setLogedIn={setLogedIn} />}/>
+            <Route path="/" element={<Login users={users} setLogedIn={setLogedIn} />}/>
             <Route path="/Home" element={<Home users={users} userName={userName} />}/>
             <Route path="/ComparePage/:slug" element={<ComparePage />} ></Route>
             <Route path="/GenresPage" element={<GenresPage />} ></Route>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { fetchAllUsersInfo, fetchUserBySlug } from "../sanity/services/userService"
 import MovieCard from "./MovieCard"
 import { Link, useParams } from 'react-router-dom';
+import { fetchAllUsersInfo, fetchUserBySlug } from '../../sanity/services/userService';
 
 export default function ComparePage() {
     const {slug} = useParams();

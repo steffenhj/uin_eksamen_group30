@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { fetchAllUsers } from "../sanity/services/userService";
 
-export default function Login({users, setUsers, setLogedIn}){
+export default function Login({users, setLogedIn}){
 
     const [selectedUser, setSelectedUser] = useState(null)
 

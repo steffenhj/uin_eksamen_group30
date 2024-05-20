@@ -1,10 +1,10 @@
 import { useEffect, useState,  } from "react";
 import { Link } from 'react-router-dom'
 
-import { fetchAllGenre, updateFavorite } from "../sanity/services/genreService";
+import { fetchAllGenre, updateFavorite } from "../../sanity/services/genreService";
 import { FaRegStar } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
-import { fetchAllUsers, fetchAllUsersInfo } from "../sanity/services/userService";
+import { fetchAllUsers, fetchAllUsersInfo } from "../../sanity/services/userService";
 
 export default function GenresPage(){
 
