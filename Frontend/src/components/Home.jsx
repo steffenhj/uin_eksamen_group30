@@ -1,13 +1,10 @@
 import MovieCard from "./MovieCard"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { fetchAllUsersInfo } from "../../sanity/services/userService"
 import { Link } from "react-router-dom"
 import '../styles/css/main.css'
 
-export default function Home({users, handleClick, userName}){
-
-    const [userData, setUserData] = useState ({})
-
+export default function Home({users, userName, userData, setUserData}){
     useEffect(()=>{
         const user = JSON.parse(localStorage.getItem("user"));
 

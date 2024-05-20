@@ -1,17 +1,9 @@
-import { useEffect, useState } from "react";
-import { fetchAllMovies } from "../../sanity/services/movieService";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { LuTv } from "react-icons/lu";
 
 export default function Header({setLogedIn, userName, setUserName}) {
-
-    const [movies, setMovie] = useState({})
-
-    const getAllMovies = async ()=> {
-        const data = await fetchAllMovies()
-        setMovie(data)
-    }
 
     const handleUserClick = () => {
         setLogedIn(false)
@@ -19,7 +11,6 @@ export default function Header({setLogedIn, userName, setUserName}) {
     }
 
     useEffect(()=>{
-        getAllMovies()
 
         const user = JSON.parse(localStorage.getItem("user"));
         setUserName(user.name)

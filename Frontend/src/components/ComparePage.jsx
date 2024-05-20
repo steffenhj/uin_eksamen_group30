@@ -3,12 +3,11 @@ import MovieCard from "./MovieCard"
 import { Link, useParams } from 'react-router-dom';
 import { fetchAllUsersInfo, fetchUserBySlug } from '../../sanity/services/userService';
 
-export default function ComparePage() {
+export default function ComparePage( {userData, setUserData} ) {
     const {slug} = useParams();
 
     const [userName, setUserName] = useState('')
     const [userToCompare, setUserToCompare] = useState('')
-    const [userData, setUserData] = useState ({})
     const [userToCompareData, setUserToCompareData] = useState ({})
 
     useEffect(()=>{
