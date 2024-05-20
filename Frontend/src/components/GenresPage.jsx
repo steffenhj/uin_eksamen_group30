@@ -81,7 +81,7 @@ useEffect(()=>{
     return(
       <section>
         <ul className="genreList">
-        <h2>Genres</h2>
+        <h1>Genres</h1>
       
         {
             genres?.map((item, index) => 

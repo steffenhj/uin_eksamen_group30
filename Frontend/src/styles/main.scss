@@ -4,7 +4,23 @@
 @import "header";
 @import "comparePage";
 @import "genrePage";
+@import "logIn";
 
 #root {
     padding-top: 0;
+    color:white;
+}
+
+body{
+    background-color: #242424;
+    
+    h1{
+        color: white;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    footer{
+        padding-top: 3rem;
+    }
 }

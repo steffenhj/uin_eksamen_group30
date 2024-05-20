@@ -1,13 +1,26 @@
+
 .main-content {
     max-width: 1000px;
     margin: 0 auto;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
 
     article {
         margin: 0 1rem;
+
+        h3{
+            text-decoration:underline ;
+        }
+      
+        
+    }
+
+    .watchtogether{
+        margin: 0 1rem;
+        background-color: #332f2f;
+        height: fit-content;
+        padding: 0rem 6rem 2rem 1.5rem;
     }
 
     .users-link {

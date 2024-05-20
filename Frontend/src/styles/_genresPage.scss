@@ -5,10 +5,7 @@ section{
     margin: 0;
     padding: 0;
 
-    h2{
-        color: rgb(51, 125, 255);
-        text-align: center;
-    }
+    
     .genres{
         display:flex;
         font-size: 100%;
@@ -35,7 +32,7 @@ section{
 
         .addFav{
             font-size: 90%;
-            color: grey;
+            color: rgb(246, 241, 241);
             padding-left: 1rem;
 
             &:hover{
@@ -45,7 +42,7 @@ section{
 
         .alreadyFav{
             font-size: 90%;
-            color: rgb(212, 201, 201);
+            color: rgb(255, 226, 5);
             padding-left: 1rem;
 
             }

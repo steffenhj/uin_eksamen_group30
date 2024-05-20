@@ -2,7 +2,7 @@ import MovieCard from "./MovieCard"
 import { useEffect } from "react"
 import { fetchAllUsersInfo } from "../../sanity/services/userService"
 import { Link } from "react-router-dom"
-import '../styles/css/main.css'
+
 
 export default function Home({users, userName, userData, setUserData}){
     useEffect(()=>{
@@ -24,24 +24,24 @@ export default function Home({users, userName, userData, setUserData}){
 
     return(
         <>
-        <h2>Hei, {userName}</h2>
+        <h1>Hei, {userName}</h1>
         <section className="main-content">
             <article>
-            <h3>Filmer jeg skal se! {userData.name}</h3>
+            <h2>Filmer jeg skal se! {userData.name}</h2>
             {userData[0]?.favoriteMovies.map((movie, index)=>(
             <MovieCard key = {index} movieImdb={movie.imdb} /> 
             ))} 
             </article>
 
             <article>
-            <h3> Din film ønskeliste:</h3> 
+            <h2> Din film ønskeliste:</h2> 
             {userData[0]?.wishlist.map((movie, index)=>(
             <MovieCard key = {index} movieImdb={movie.imdb} /> 
             ))}
             </article>
             
-            <article>
-                <h3>Jeg skal se sammen med...</h3>
+            <article className="watchtogether">
+                <h2>Jeg skal se sammen med...</h2>
                 <ul>
                     {otherUsers.map((user, index)=>(
                         <li className="users-link" key={index}>
