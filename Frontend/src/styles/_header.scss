@@ -1,9 +1,11 @@
+$headerFooterColor: #333557;
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem 0.7rem 2rem 0.7rem;
-    background-color: #333557;
+    background-color: $headerFooterColor;
 
     a {
         color: white;
