@@ -16,14 +16,14 @@ function App() {
 
   const [users, setUsers] = useState([])
   const [userName, setUserName] = useState('')
+  const [userData, setUserData] = useState ({})
+  const location = useLocation()  
+  // Kilde til hvordan bruke useLocation: https://medium.com/codingbeauty-tutorials/react-router-get-current-route-9c2e6bd8d689
   const [logedIn, setLogedIn] = useState(()=>{
     const data = localStorage.getItem("logedIn")
     const logedInData = JSON.parse(data)
     return logedInData || false
   })
-  const location = useLocation()
-  // Kilde til hvordan bruke useLocation: https://medium.com/codingbeauty-tutorials/react-router-get-current-route-9c2e6bd8d689
-  const [userData, setUserData] = useState ({})
 
   useEffect(()=>{
     const getAllUsers = async ()=> {
@@ -46,7 +46,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Login users={users} setUsers={setUsers} setLogedIn={setLogedIn} />} />
           <Route path="/Home" element={logedIn ? <Home users={users} userName={userName} userData={userData} setUserData={setUserData} /> : <Navigate to="/" />} />
-          <Route path="/ComparePage/:slug" element={logedIn ? <ComparePage userData={userData} setUserData={setUserData} /> : <Navigate to="/" />} />
+          <Route path="/ComparePage/:slug" element={logedIn ? <ComparePage userData={userData} setUserData={setUserData} userName={userName} /> : <Navigate to="/" />} />
           <Route path="/GenresPage" element={logedIn ? <GenresPage /> : <Navigate to="/" />} />
           <Route path="/GenrePage/:slug" element={logedIn ? <GenrePage /> : <Navigate to="/" />} />
         </Routes>

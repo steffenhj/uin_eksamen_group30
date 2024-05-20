@@ -3,16 +3,14 @@ import MovieCard from "./MovieCard"
 import { Link, useParams } from 'react-router-dom';
 import { fetchAllUsersInfo, fetchUserBySlug } from '../../sanity/services/userService';
 
-export default function ComparePage( {userData, setUserData} ) {
+export default function ComparePage({userData, setUserData, userName}) {
     const {slug} = useParams();
 
-    const [userName, setUserName] = useState('')
     const [userToCompare, setUserToCompare] = useState('')
     const [userToCompareData, setUserToCompareData] = useState ({})
 
     useEffect(()=>{
         const user = JSON.parse(localStorage.getItem("user"));
-        setUserName(user.name)
         setUserToCompare(slug)
         
 
@@ -35,8 +33,6 @@ export default function ComparePage( {userData, setUserData} ) {
     useEffect(()=>{
         getUserBySlug(slug)
     }, [slug])
-
-    // Må endre slik at en bruker ikke kan gå til innloggingssiden uten å logge ut, for nå er det mulig å compare stig mot stig.
 
     const commonFavorites = userData[0]?.favoriteMovies.filter(movie1 => userToCompareData[0]?.favoriteMovies.some(movie2 => movie1.imdb === movie2.imdb)) || []
 
@@ -114,7 +110,7 @@ export default function ComparePage( {userData, setUserData} ) {
 
         <section className='wishlist-favorite'>
             <article>
-                <h3>ønskeliste og favoritter!</h3>
+                <h3>Ønskeliste og favoritter!</h3>
                 <ul>
                     {wishlistAndFavorite.map((movie, index)=>
                     <li key={index}>
