@@ -9,7 +9,7 @@ export default function Layout({children, logedIn, setLogedIn, userName, setUser
         <main>
             {children}
         </main>
-        <footer>WhatToSee © 2024</footer>
+        {logedIn && <footer>WhatToSee © 2024</footer>}
     </>
     )
 }
