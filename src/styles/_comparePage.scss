@@ -11,6 +11,7 @@
 
 .wishlist-favorite {
     background-color: rgba(95, 95, 95, 0.096);
+    
 
     ul {
         display: flex;
@@ -22,6 +23,11 @@
 
         li {
             margin: 0 1rem;
+            background-color: #493559;
+
+            h3{
+                color: whitesmoke;
+            }
         }
     }
     .lists {
@@ -29,6 +35,9 @@
         flex-direction: column;
         li {
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            
+
         }
     }
 }
