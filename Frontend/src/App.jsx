@@ -44,20 +44,16 @@ function App() {
       localStorage.setItem("logedIn", false)
     } 
   },[location])
-
-  if (!logedIn && location.pathname !== "/"){
-    return <Navigate to="/" />
-  }
   
   return (
     <>
       <Layout logedIn={logedIn} setLogedIn={setLogedIn} userName={userName} setUserName={setUserName} >
         <Routes>
-            <Route path="/" element={<Login users={users} setLogedIn={setLogedIn} />}/>
-            <Route path="/Home" element={<Home users={users} userName={userName} />}/>
-            <Route path="/ComparePage/:slug" element={<ComparePage />} ></Route>
-            <Route path="/GenresPage" element={<GenresPage />} ></Route>
-            <Route path='/GenrePage/:slug' element={<GenrePage/>}></Route>
+        <Route path="/" element={<Login users={users} setUsers={setUsers} setLogedIn={setLogedIn} />} />
+          <Route path="/Home" element={logedIn ? <Home users={users} userName={userName} /> : <Navigate to="/" />} />
+          <Route path="/ComparePage/:slug" element={logedIn ? <ComparePage /> : <Navigate to="/" />} />
+          <Route path="/GenresPage" element={logedIn ? <GenresPage /> : <Navigate to="/" />} />
+          <Route path="/GenrePage/:slug" element={logedIn ? <GenrePage /> : <Navigate to="/" />} />
         </Routes>
       </Layout>
     </>
